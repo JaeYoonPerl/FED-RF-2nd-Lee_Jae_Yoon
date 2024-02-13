@@ -2,11 +2,13 @@
 
             /* 웹폰트 구글CDM(Content Delivery Network) */
 
-            @import url('https://fonts.googleapis.com/css2?family=Dongle:wght@300&family=Hahmlet&family=Merriweather&display=swap');
+            @import url('https://fonts.googleapis.com/css2?family=Dongle:wght@300&family=Noto+Sans+KR:wght@100..900&family=Hahmlet&family=Merriweather&display=swap');
             /* 
-            font-family: 'Dongle', sans-serif;
+            기사본문용 font-family: "Noto Sans KR";
+            서브타이틀용 font-family: 'Dongle', sans-serif;
             font-family: 'Hahmlet', serif;
             font-family: 'Merriweather', serif;
+            
             */
             /* CSS 코딩구역 */
             /* 
@@ -79,10 +81,7 @@
                 margin: 20px auto;
             }
 
-            /* 메인 이미지 크기 변경하기 */
-            #main-area img{
-                width: 100%;
-            }
+            
 
             /* 상단영역, 하단영역 공통 - 콤마(,)는 그룹선택자 */
             header.part,
