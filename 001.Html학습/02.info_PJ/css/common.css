@@ -1,10 +1,12 @@
+@charset "utf-8";
+/* 맨위 utf-8 인코딩 설정 필수! */
 /* Info PJ 공통 CSS - common.css */
 
             /* 웹폰트 구글CDM(Content Delivery Network) */
 
             @import url('https://fonts.googleapis.com/css2?family=Dongle:wght@300&family=Noto+Sans+KR:wght@100..900&family=Hahmlet&family=Merriweather&display=swap');
             /* 
-            기사본문용 font-family: "Noto Sans KR";
+            기사본문용 font-family: "Noto Sans KR, ,sans-serif";
             서브타이틀용 font-family: 'Dongle', sans-serif;
             font-family: 'Hahmlet', serif;
             font-family: 'Merriweather', serif;
@@ -115,7 +117,13 @@
             /* 타이틀 */
             .tit{
                 font-family: 'Merriweather', serif;
-                font-size: 48px;
+                font-size: 52px;
+                color: darkblue;
+                text-shadow: 2px 2px 2px #000;
+                margin: 0;
+                margin-bottom: 10px;
+                margin-top: 20px;
+
             }
             /* 메뉴 */
             .menu{
