@@ -1,0 +1,30 @@
+@charset "utf-8";
+/* 인트로사이트 메인 CSS - main.css */
+
+html,body{
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+body{
+
+    background-image: 
+    linear-gradient(to bottom,rgb(133, 255, 188),rgb(255, 255, 234));
+
+    /*
+    [ 선형 그라데이션 ]
+    background-image:
+    liner-gradient(방향,색1,색2,색3,....) 
+    -방향:
+    to top, to left, to right, to bottom*/
+
+}
+
+.wrap{
+    border: 1px dashed darkblue;
+    border-radius: 20px;
+    width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    text-align: center;
+}
