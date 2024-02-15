@@ -9,8 +9,7 @@ html,body{
 body{
     background: url(../images/background.jpg) no-repeat center/cover;
 
-    background-image: 
-    linear-gradient(to bottom,rgb(133, 255, 188),rgb(255, 255, 234));
+    /* background-image: linear-gradient(to bottom,rgb(133, 255, 188),rgb(255, 255, 234)); */
 
     /*
     [ 선형 그라데이션 ]
@@ -23,6 +22,7 @@ body{
 
 .wrap{
     border: 1px dashed darkblue;
+    background-color: #fcdddde1;
     border-radius: 20px;
     width: 600px;
     margin: 0 auto;
