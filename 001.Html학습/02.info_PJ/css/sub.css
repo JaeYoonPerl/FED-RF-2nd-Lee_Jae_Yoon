@@ -225,7 +225,8 @@ margin: 20px 0;
     /* 기본마진 없애기 */
     margin: 0;
     font-size: 15px;
-    line-height: 2.2;
+    line-height: 2.1;
+    /* 양쪽정렬 : taj */
     text-align: justify;
 }
 /* 블록인용 이미지 */
@@ -237,5 +238,9 @@ margin: 20px 0;
     float: right;
     /* 이미지 옆에 공간주기 */
     margin-left: 10px;
+    /* 둥근모서리 */
+    border-radius: 5px;
+    /* 박스그림자 */
+    box-shadow: 4px 4px 5px 10px #888;
 
 }
