@@ -341,7 +341,7 @@ margin: 20px 0;
     /* background-color: pink; */
     /* padding */
     padding: 20px;
-    border: 13px dotted #1323ff;
+    border: 13px dotted #e7e8ff;
 
     
     /* 
@@ -393,6 +393,7 @@ margin: 20px 0;
 
 /* 작품 이미지 */
 .work img{
+    /* 액자틀모양 보더 */
     border: 12px ridge goldenrod;
 }
 
