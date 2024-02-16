@@ -337,6 +337,8 @@ margin: 20px 0;
     background-image:
     linear-gradient(-46deg, #ffb1f2 10%, #abf8d4 60%, #2de3f0 90%);
 
+
+    /* background-color: pink; */
     /* padding */
     padding: 20px;
     border: 13px dotted #1323ff;
@@ -372,8 +374,8 @@ margin: 20px 0;
 
     /* 배경 반복 제거 */
     background-repeat: no-repeat;
-
-
+    /* 박스 내부 그림자 */
+    box-shadow: inset 0 0 10px #333;
 }
 /* 작품 타이틀 */
 .work h4{
@@ -387,4 +389,24 @@ margin: 20px 0;
     첫번째 자식마진은 부모바깥으로 나간다
     참고) 마지막 자식블록요소도 
     부모 박스 하단 마진은 바깥으로 나감 */
+}
+
+/* 작품 이미지 */
+.work img{
+    border: 12px ridge goldenrod;
+}
+
+/* 작품명 */
+.work figcaption{
+    font-family: "Gugi", sans-serif;
+    font-size: 20px;
+    margin-top: 20px;
+}
+/* 작품명 인용구 */
+.work cite{
+    /* 이탤릭 해제 */
+    font-style: normal;
+
+    /* 글자색 */
+    color: darkmagenta;
 }

@@ -4,13 +4,14 @@
 
             /* 웹폰트 구글CDM(Content Delivery Network) */
 
-            @import url('https://fonts.googleapis.com/css2?family=Black+And+White+Picture&family=Dongle:wght@300&family=Noto+Sans+KR:wght@100..900&family=Hahmlet&family=Merriweather&display=swap');
+            @import url('https://fonts.googleapis.com/css2?family=Gugi&family=Black+And+White+Picture&family=Dongle:wght@300&family=Noto+Sans+KR:wght@100..900&family=Hahmlet&family=Merriweather&display=swap');
             /* 
             기사본문용 font-family: "Noto Sans KR, ,sans-serif";
             서브타이틀용 font-family: 'Dongle', sans-serif;
             font-family: 'Hahmlet', serif;
             font-family: 'Merriweather', serif;
             font-family: "Black And White Picture", system-ui
+            font-family: "Gugi", sans-serif;
             */
             /* CSS 코딩구역 */
             /* 
