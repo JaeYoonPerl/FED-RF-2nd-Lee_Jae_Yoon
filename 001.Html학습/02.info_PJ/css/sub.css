@@ -308,6 +308,7 @@ margin: 20px 0;
     background-color: #ccc;
 }
 
+
 /* 기사원문 a요소 마우스 오버시 */
 .article-link a:hover {
     color: hotpink;
