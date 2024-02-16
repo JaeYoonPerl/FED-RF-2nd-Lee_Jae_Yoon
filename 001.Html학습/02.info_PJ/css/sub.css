@@ -338,7 +338,10 @@ margin: 20px 0;
     linear-gradient(-46deg, #ffb1f2 10%, #abf8d4 60%, #2de3f0 90%);
 
     /* padding */
-    padding: 1px;
+    padding: 20px;
+    border: 13px dotted #1323ff;
+
+    
     /* 
         부모박스에 패딩이 없는 상태에서
         첫번째 자식 블록박스의 마진은
@@ -351,6 +354,24 @@ margin: 20px 0;
         패딩의 내부공간을 밀게 된다.
 
     */
+
+    /* 
+    [ 배경관련 표시 영역지정 :  background-clip ]
+        값 : border-box 보더 영역까지표시(기본값)
+        값 : padding-box 패딩 영역까지표시
+        값 : content-box 내용 영역까지표시
+    */
+    background-clip: border-box;
+    /* 
+    [ 배경관련 시작 영역지정 : background-origin ]
+        값 : border-box 보더 영역부터 시작
+        값 : padding-box 패딩 영역부터 시작(기본값)
+        값 : content-box 내용 영역부터 시작
+    */
+    background-origin: padding-box;
+
+    /* 배경 반복 제거 */
+    background-repeat: no-repeat;
 
 
 }
