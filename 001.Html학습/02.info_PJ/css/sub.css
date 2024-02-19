@@ -461,7 +461,7 @@ margin: 20px 0;
 }
 
 /* 주요뉴스 ul 변경하기 */
-.main-news ul{
+.news-box ul,.news-box ol{
     /* 기본리스트 숨기기 */
     list-style: none;
     /* 기본 마진, 패딩없애기 */
@@ -478,6 +478,59 @@ margin: 20px 0;
     content: '😂';
     /* content: url(../images/logo.png); */
 }
+
+/* 주요뉴스 li의 가상클래스를 사용한 선택법 
+    [ 같은 종류의 자식요소일 경우 선택법 ]
+    :first-child -> 첫번째 자식
+    :last-child -> 마지막째 자식
+    :nth-child(n) -> n번째 자식(n은 1부터)
+*/
+.main-news li:first-child a{
+    color: red;
+}
+.main-news li:nth-child(2) a{
+    color: blue;
+}
+.main-news li:last-child a{
+    color: green;
+}
+
+
+/* 분야별뉴스 dt */
+.sec-news dt{
+    display:inline-block;
+    font-family: "Gugi", sans-serif;
+    font-size: 20px;
+    border: 4px dashed seagreen;
+    padding: 10px;
+    border-radius: 50%;
+    margin: 10px 0; 
+
+}
+
+
+/* 분야별 뉴스 dd 가상요소 아이콘넣기 */
+.sec-news dd::before{
+    content: '🚙';
+}
+.sec-news dd{
+
+    /* 1. 줄바꿈방지 */
+    white-space: nowrap; /* whs */
+    /* 2. 넘치는 내용 숨기기 */
+    overflow: hidden; /* oh */
+    /* 3. 넘치는 텍스트 말줄임표(입.립스...) */
+    text-overflow: ellipsis; /* tov */
+}
+
+.sec-news dl{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    
+}
+
+
 
 /* 
     [CSS의 가상요소 : before, after]

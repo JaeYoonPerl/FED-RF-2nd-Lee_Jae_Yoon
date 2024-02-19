@@ -205,16 +205,70 @@
                 <!-- ol은 start로 시작번호 지정옵션, reversed를 주면 역순으로 순서를 보여준다 -->
             <ol>
                 <li>
-                    <a href="https://n.news.naver.com/mnews/ranking/article/031/0000813542?ntype=RANKING" target="_blank">한동훈 "개혁신당, 돈때문에 모였나…이혼하면 보조금 사기"</a>
+                    <a href="https://n.news.naver.com/mnews/ranking/article/031/0000813542?ntype=RANKING" target="_blank">1. 한동훈 "개혁신당, 돈때문에 모였나…이혼하면 보조금 사기"</a>
                 </li>
                 <li>
-                    <a href="https://n.news.naver.com/mnews/ranking/article/031/0000813564?ntype=RANKING" target="_blank">김경율, 카이스트 강제 퇴장 "우발적 아냐…사전 준비한 듯"</a>
+                    <a href="https://n.news.naver.com/mnews/ranking/article/031/0000813564?ntype=RANKING" target="_blank">2. 김경율, 카이스트 강제 퇴장 "우발적 아냐…사전 준비한 듯"</a>
                 </li>
                 <li>
-                    <a href="https://n.news.naver.com/mnews/ranking/article/031/0000813532?ntype=RANKING" target="_blank">bhc, '값싼 브라질산 닭' 쓰면서 가격도 인상</a>
+                    <a href="https://n.news.naver.com/mnews/ranking/article/031/0000813532?ntype=RANKING" target="_blank">3. bhc, '값싼 브라질산 닭' 쓰면서 가격도 인상</a>
                 </li>
             </ol>
          </article>
+
+        <!-- 
+            [ 용어정의리스트 : dl ]
+
+            dl > dt + dd
+            ___________________
+
+            dl : 용어 리스트
+            (defines the description list)
+            dt : 용어정의
+            (defines the term)
+            dd : 용어설명
+            (description each term)
+            ____________________
+            주의 - dl은 반드시 자식요소로 dt, dd가 반드시 한번이상 사용되어야 함  
+            또 주의 - dt와 dd는 형제관계임(자식아님)
+         -->
+         
+         <!-- 분야별 뉴스 : dl -->
+         <article class="sec-news news-box">
+            <h3>분야별 뉴스</h3>
+            <dl>
+                <!-- 경제 파트 -->
+                <dt>경제</dt>
+                <dd>
+                    <a href="https://n.news.naver.com/mnews/article/011/0004301464" target="_blank">참외 나오기 전까지…정부, 사과·배에 166억원 투입</a>
+                </dd>
+                <dd>
+                    <a href="https://n.news.naver.com/mnews/article/277/0005381346" target="_blank">명불허전 '킹갓혜자'…1초에 1개씩 팔린 셈</a>
+                </dd>
+                <!-- 사회 파트 -->
+                <dt>사회</dt>
+                <dd>
+                    <a href="https://n.news.naver.com/mnews/article/001/0014513264" target="_blank">병원협회, 의료현안 상황대응위원회 구성…"필수의료 유지"</a>
+                </dd>
+                <dd>
+                    <a href="https://n.news.naver.com/mnews/article/032/0003279600" target="_blank">서울 대형병원들 ‘진료 차질’ 불가피…수술 일정 조정, 평소 절반까지 줄 듯</a>
+                </dd>
+                <!-- tv연예 파트 -->
+                <dt>TV/연예</dt>
+                <dd>
+                    <a href="https://entertain.naver.com/read?oid=609&aid=0000824699" target="_blank">김나영 “‘노래의 신’ 신용재 만나고 보니 같이 늙어가는 동네 오빠”(라디오쇼)</a>
+                </dd>
+                <dd>
+                    <a href="https://entertain.naver.com/ranking/read?oid=076&aid=0004111422" target="_blank">전현무 "나는 쉽게 결혼 못 해요"…'왼손 약지 반지' 결혼설 해프닝 [종합]</a>
+                </dd>
+            </dl>
+         </article>
+
+
+
+
+
+
         </main>
 
         <!-- 3. 하단영역 : 회사정보 -->
