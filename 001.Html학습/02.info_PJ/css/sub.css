@@ -437,8 +437,8 @@ margin: 20px 0;
     text-shadow: 1px 1px 1px #000;
 }
 
-/* 뉴스 공통 말줄임표시 넣기 */
-.news-box li{
+/* 뉴스 공통 말줄임표시 넣기 + 분야별 뉴스도 추가 */
+.news-box li, .sec-news dd{
     /* 기본적으로 블록박스는 내용이 넘치면 줄바꿈이 되는 랩핑박스가 기본이다.
     줄바꿈 방지하는 속성은 white-space:nowrap;
     (기본값은 normal) */
@@ -504,7 +504,7 @@ margin: 20px 0;
     border: 4px dashed seagreen;
     padding: 10px;
     border-radius: 50%;
-    margin: 10px 0; 
+   
 
 }
 
@@ -513,21 +513,116 @@ margin: 20px 0;
 .sec-news dd::before{
     content: '🚙';
 }
-.sec-news dd{
 
-    /* 1. 줄바꿈방지 */
-    white-space: nowrap; /* whs */
-    /* 2. 넘치는 내용 숨기기 */
-    overflow: hidden; /* oh */
-    /* 3. 넘치는 텍스트 말줄임표(입.립스...) */
-    text-overflow: ellipsis; /* tov */
+
+
+
+/* 주요뉴스 dt의 가상클래스를 사용한 선택법 
+    [ 2가지 이상의 종류의 자식요소가 있을 경우 선택법 ]
+    :first-of-type -> 같은타입(요소) 중 첫번째 
+    :last-of-type -> 같은타입(요소) 중 마지막째 
+    :nth-of-type(n) -> 같은타입(요소) 중 n번째 (n은 1부터)
+*/
+
+/* 분야별뉴스 dt별 글자색, 배경색 변경하기 */
+/* 경제 */
+.sec-news dt:first-of-type{
+    color: red;
+    background-color: lightgreen;
+    border-color: yellowgreen;
+}
+/* 사회 */
+.sec-news dt:nth-of-type(2){
+    color: blue;
+    background-color: lightcoral;
+    border-color: darkmagenta;
+  
+}
+/* tv 연예 */
+.sec-news dt:last-of-type{
+    color: green;
+    background-color: lightskyblue;
+    border-color: darkkhaki;
+   
 }
 
-.sec-news dl{
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    
+/* 첫번째 dt를 제외한 나머지 dt의 마진탑 주기 */
+.sec-news dd+dt{
+    margin-top: 30px;
+}
+
+/* 사진 뉴스 박스 */
+/* 타이틀 변경하기 */
+.photo-news h3{
+    /* 배경 그라데이션 없애기 */
+    background-image: none;
+    /* 중앙정렬 */
+    text-align: center;
+
+}
+/* 타이틀 앞 가상요소 아이콘 */
+.photo-news h3::before{
+    content: '📷';
+    font-size: 32px;
+    margin-right: 10px;
+    /* vertical-align: 10px; */
+}
+.photo-news h3::after{
+    content: '📺';
+    font-size: 32px;
+    margin-left: 10px;
+}
+
+/* 사진 뉴스 테이블 
+- 테이블은 기본적으로 내용만큼 가로크기를 가지며 부모박스ㅡ이 크기가 작아질 경우 그 크기에 맞춰진다.*/
+
+.photo-news table{
+    max-width: 500px;
+    /* 최대width 지정시 부모박스가 이 크기보다 작아질때 auto로 전환됨 */
+   
+    /* 테이블 중앙 - 마영오 
+    (블록, 테이블 모두 공통)*/
+    margin: 0 auto;
+
+    /* 테두리 */
+    border: 2px solid #ccc;
+
+    /* 테이블 기본 간격 없앰(정확한 수치화를 위해) */
+    border-collapse: collapse;
+    /* separate 기본값(사이간격있음)
+    -> table태그에 border='1'로 확인가능 */
+}
+
+
+
+/* tr이나 td에 child 선택자 사용가능
+왜? table tr td 정해짐! 같은 종류의 형제요소들만 올 수 있음 */
+/* 첫번째 td - 숫자 부분 */
+.photo-news td:first-child{
+    /* 가로크기 */
+    width: 50px;
+    /* 세로크기 */
+    height: 84px;
+    background-color: #ccc;
+    text-align: center;
+}
+/* 두번째 td -기사제목링크 */
+.photo-news td:nth-child(2){
+    /* 배경색: bgc */
+    background-color: #e4e4e4;
+    /* 패딩양쪽 */
+    padding: 0 20px;
+
+}
+/* 세번째 td */
+.photo-news td:last-child{
+    background-color: #e4e4e4;
+}
+
+/* 사진뉴스 이미지 */
+.photo-news img{
+    height: 70px;
+    vertical-align: middle;
 }
 
 
