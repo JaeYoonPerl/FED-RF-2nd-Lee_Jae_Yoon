@@ -614,6 +614,11 @@ margin: 20px 0;
     padding: 0 20px;
 
 }
+
+/* 사진 뉴스 두번째 tr부터 마진탑 넣기 */
+.photo-news tr+tr td{
+    border-top: 2px solid #ccc;
+}
 /* 세번째 td */
 .photo-news td:last-child{
     background-color: #e4e4e4;
@@ -623,6 +628,25 @@ margin: 20px 0;
 .photo-news img{
     height: 70px;
     vertical-align: middle;
+}
+
+/* 사진 뉴스 기사링크 2줄 말줄임표시 세팅하기 */
+.photo-news td:nth-child(2) a{
+    /* 말줄임 처리(2줄) */
+    /* 1. 넘치는 컨텐츠 숨기기 */
+    overflow: hidden;
+    /* 2. 넘치는 글 말줄임표시 */
+    text-overflow: ellipsis;
+    /* 3. display를 -webkit-box로 변경 */
+    display: -webkit-box;
+    /* 4. 말줄임표시 라인설정 : 숫자가 줄수임 */
+    -webkit-line-clamp: 2;
+    /* 5. 기준축 진행방향 설정 */
+    -webkit-box-orient: vertical;
+    
+    /* 줄간격 변경 */
+    line-height: 1.5;
+
 }
 
 
