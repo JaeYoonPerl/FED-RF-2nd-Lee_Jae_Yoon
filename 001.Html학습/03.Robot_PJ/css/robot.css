@@ -44,7 +44,8 @@ body *{
 /********************************* 2. 메인영역 *********************************/
 /* 2-1. 로봇박스 */
 .robot-box{
-    
+    padding-top: 200px;
+  margin-bottom: 900px;
 }
 /* 2-1-1. 로봇머리 */
 .head{
@@ -64,11 +65,12 @@ body *{
     content: '';
     position: absolute;
     /* 부모는? .head */
-    top: 10px;
-    left: 10px;
-    width: 200px;
-    height: 150px;
-    background: url(../images/hair2.png) no-repeat 0 100%/100%;
+    top: -97px;
+    left: -90px;
+    width: 430px;
+  height: 422px;
+  background: url(../images/hair2.png) no-repeat 0/100% 100%;
+  filter: hue-rotate(0deg);
 }
 /* 눈공통 */
 .eye{
