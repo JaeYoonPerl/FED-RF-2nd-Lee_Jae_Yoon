@@ -1,7 +1,7 @@
 @charset "utf-8";
 /* 레이아웃 유형1 */
 
-@import url(../css/grid_12_float.css);
+@import url(./grid_12_float.css);
 
 /* 초기화 */
 html,body,h1,h2,ul,ol{
