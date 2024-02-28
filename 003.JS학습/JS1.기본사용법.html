@@ -150,6 +150,11 @@
             //전체문서.가져와아이디요소(아이디명).html넣기
             document.getElementById('name').innerHTML='<img src="./images/kim.png" alt="김비서가 왜 그럴까">';
 
+            // 콘솔에 아이디요소 찍기
+            console.log(document.getElementById('name'));
+            // 아이디 요소는 한번에 요소를 선택함
+            //
+
             // 3. CSS 변경하기 //////////
             // 변경대상 : .pbox
             // CSS변경 객체 : style.속성명
@@ -161,6 +166,9 @@
             console.log(
                 document.getElementsByClassName('pbox')
                 );
+                // 여러개를 만들 수 있는 클래스, 태그 선택은
+                // HTML Collection에 담는다.
+                // 그래서 구체적인 요소를 선택할때는 item(순번)/[순번]을 사용하여 선택함
                 
                 // 구체적인 클래스 요소 선택하기 : item(n)
                 // 반복적으로 사용되는 요소는 특정 공간에 
@@ -170,8 +178,9 @@
                 // 변수는 여기를 '봐' var로 선언
                 // var 변수명 =  값
 
-                var 피박스 = document.getElementsByClassName('pbox')
-                .item(0); 
+                var 피박스 = document.getElementsByClassName('pbox')[0];
+                // var 피박스 = document.getElementsByClassName('pbox')
+                // .item(0); 
 
                 // 변수를 사용하는 이유?
                 // - 변수는 재사용
@@ -265,6 +274,33 @@
 
         } /////// 김비서 함수 //////
 
+        /************************************************** 
+            함수명 : 맘대로해라
+            기능 : 선택요소의 style과 html을 변경함
+        **************************************************/
+       function 맘대로해라(헐,헉스){
+        // 헐 - .원이야 순번 / 헉스 - 그림제목
+         // 1. 함수 호출 확인
+         console.log("니맘대로하세요~!",헐,헉스)
+
+         // 2. 대상선정 : .박스야 .원이야
+         var 멍청이 = document.querySelectorAll('.박스야 .원이야');
+         // 주의: 따옴표 안은 CSS선택자 문법을 써야함
+
+         // 기존 기본 선택방식이 너무 길다
+         // 따라서 간단한 CSS 선택자 선택법이 있다.
+         // 1. quertselltor(CSS선택자) - 하나만 바로 선택
+         // 2. quertselltorAll(CSS선택자) - 컬렉션에 담는다.
+         // -> 2번방식은 .item(순번)/[순번]으로 세부선택
+         // -> length로 컬렉션 길이도 알 수 있음
+
+        //  document.getElementsByClassName('박스야').item(0)
+        //  .getElementsByClassName('원이야');
+
+         console.log(멍청이)
+       } //맘대로해라 함수////////////
+
+
     </script>
     <style>
         html,body{
@@ -311,6 +347,35 @@
         p.pbox{
             z-index: 1;
         }
+
+        /* 원모양 */
+        .원이야{
+            position: absolute;
+            top: 0;
+            right: 0;
+            /* 부모는? window */
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            /* 배경공통 */
+            background-repeat: no-repeat;
+            background-size: cover;
+            /* 보더박스  : 보더, 패팅 포함박스 */
+            box-sizing: border-box;
+        }
+        /* 원모양 개별셋팅 */
+        .원이야:nth-child(1){
+            right: 400px;
+            background-image: url(./images/01.png);
+        }
+        .원이야:nth-child(2){
+            right: 200px;
+            background-image: url(./images/02.png);
+        }
+        .원이야:nth-child(3){
+            
+            background-image: url(./images/03.png);
+        }
     </style>
 </head>
 <body>
@@ -322,6 +387,17 @@
             
         </span>
     </p>
+
+    <!-- 원모양 박스 -->
+    <div class="박스야">
+        <!-- 원모양 -->
+        <div class="원이야" onmouseover="맘대로해라(0, '별이 빛나는 밤')"></div>
+        <div class="원이야" onmouseover="맘대로해라(1, '론강의 별이 빛나는 밤')"></div>
+        <div class="원이야" onmouseover="맘대로해라(2, '밤의 카페 테라스')"></div>
+
+
+
+    </div>
 
    
     <!-- <div class="pbox"></div>
