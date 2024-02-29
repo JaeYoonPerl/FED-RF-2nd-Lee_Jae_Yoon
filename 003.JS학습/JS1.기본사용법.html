@@ -518,7 +518,18 @@
 </head>
 <body>
     <!-- 드라마 소개박스 -->
-    <p class="pbox" onclick="김비서()">
+    <p class="pbox" onclick="김비서()" 
+    title="더블클릭하시면 우영우가 나옵니다."
+    ondblclick="
+    // this키워드 : 현재 요소 자신
+    // document.quertselltor('.pbox')[0]라고 안해도
+    //요소 자신을 설정해준다
+
+    // 이미지변경하기
+    this.style.backgroundImage = 'url(./images/woo.jpg)';
+    //html변경하기
+    this.innerHTML= '우 to the 영 to the 우<br>동 to the 그 to the 라미';
+    ">
         나는 요즘 매일 생각한다 <br>
         도대체 
         <span id="name">
