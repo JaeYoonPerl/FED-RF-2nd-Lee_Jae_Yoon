@@ -121,6 +121,23 @@
                 4. 부모박스에 가상요소로 clear:both설정
             */
 
+            /* 배경 등분할 박스 순서 변경하기 : flex 하위 order 속성 */
+            .flex-box li:nth-child(1) {
+                order: 3
+            }
+            .flex-box li:nth-child(2) {
+                order: 4
+            }
+            .flex-box li:nth-child(3) {
+                order: 2
+            }
+            .flex-box li:nth-child(4) {
+                order: 5
+            }
+            .flex-box li:nth-child(5) {
+                order: 1
+            }
+
             /* 등분할 박스 li 개별셋팅 */
             .flex-box li:nth-child(1) {
                 background: url(02.DisplayFlex/images/m01_bg.jpg) no-repeat center/cover;
