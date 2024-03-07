@@ -706,6 +706,8 @@ blur(4px) saturate(150%);
     position: relative;
     /* z-index적용위해 포지션 줌 */
     z-index: 100;
+
+    margin-top: 100px;
     color: #fff;
     /* 글자 크기:30px, 글자체 'Black Ops One' */
     font: 3rem 'Black Ops One';
