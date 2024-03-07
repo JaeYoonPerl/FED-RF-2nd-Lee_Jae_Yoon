@@ -213,3 +213,46 @@
     }
 }
 
+/* 로솝오른쪽팔 손흔들기 */
+.arm2{
+    /* 팔올리기 */
+    animation: right-arm-ani1 .4s 9s forwards
+    /* 팔흔들기: 팔올린다음(지연9.4초) */
+    ,right-arm-ani2 .4s ease-in-out 9.4s infinite alternate;
+}
+/* 팔올리기 키프레임 */
+@keyframes right-arm-ani1{
+    to{
+        transform:rotate(-150deg);
+    }
+}
+
+/* 팔흔들기 키프레임 */
+@keyframes right-arm-ani2{
+    to{
+        transform:rotate(-140deg);
+    }
+}
+
+/* 오른손 팔꿈치 살짝 움직이기 */
+.arm2 span{
+    animation: right-arm-ani3 0.4s ease-in-out 9s infinite alternate;
+}
+/* 오른손 팔꿈치 키프레임 */
+@keyframes right-arm-ani3{
+    to{
+        transform:rotate(-20deg);
+    }
+}
+
+/* 오른손 y축회전 */
+.arm2 span::after{
+    animation: right-arm-ani4 0.2s 9.4s forwards;
+}
+
+@keyframes right-arm-ani4{
+    to{
+        transform:rotateY(180deg);
+        left: -13px;
+    }
+}
