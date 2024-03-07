@@ -256,3 +256,14 @@
         left: -13px;
     }
 }
+
+/*  */
+.link-title{
+    
+    animation: link-title-ani 1s ease-in 9.4s forwards;
+}
+@keyframes link-title-ani{
+    to{
+        transform: translateX(200px) scale(0.7);
+    }
+}

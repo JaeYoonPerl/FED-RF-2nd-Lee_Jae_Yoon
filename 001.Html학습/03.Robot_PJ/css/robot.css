@@ -21,6 +21,8 @@ html,body,h1,h2,h3,ul,ol{
 html{
     font-size: 10px;
     /* rem단위 글자계산  */
+    scroll-behavior: smooth;
+    /* 부드러운 스크롤 애니이동 */
 }
 /* 전체 배경이미지 */
 body{
@@ -29,9 +31,9 @@ body{
 }
 
 /* 공사중 표시 */
-body *{
+/* body *{
     outline: 2px dashed yellow;
-}
+} */
 
 /********************************* 공통 클래스 *********************************/
 /* 메탈배경 클래스 */
@@ -55,7 +57,7 @@ h1.logo{
     background: pink url(../images/robot_03.png) no-repeat center/auto 100%;
     box-shadow: inset 0 0 20px 5px #000,
     0 0 20px 5px aqua;
-    z-index: 999;
+    z-index: 96;
     /* 글자설정 */
     text-align: center;
     line-height: 20vw;
@@ -67,12 +69,26 @@ h1.logo{
 }
 
 /********************************* 2. 메인영역 *********************************/
+
+
+/* 2-1. 로봇박스 */
+.robot-box{
+    position: fixed;
+    top: 0;
+    left: 50%;
+    transform: translate(124%,10%) scale(0.3);
+    /* padding-top: 200px; */
+    margin-bottom: 560px;
+}
 /* 2-1-0. 로봇 말풍선 */
 .link-title{
     position: absolute;
     top: -5vw;
     left: 50%;
-    transform: translateX(200px);
+    /* 로봇머리로부터 위치 일정하게 */
+    transform: translateX(200px) scale(0);
+    /* 로봇쪽에서 커지게 하기 위해 트랜스폼 기준 변경(왼쪽아래) */
+    transform-origin:left bottom;
     width: 40vw;
     height: 20vw;
     border-radius: 50%;
@@ -84,19 +100,27 @@ h1.logo{
     color: blue;
     font-size: 5vw;
     
-    border: 10px dashed #ff0000;
+    border: 10px dashed orangered;
     box-sizing: border-box;
+
+    z-index: 3;
 }
-
-
-/* 2-1. 로봇박스 */
-.robot-box{
-    position: fixed;
-    top: 0;
-    left: 50%;
-    transform: translate(124%,10%) scale(0.3);
-    /* padding-top: 200px; */
-    margin-bottom: 560px;
+/* 가상요소로 삼각형 만들기 */
+.link-title::after{
+    content: '';
+    position: absolute;
+    top: 65%;
+    left: -11%;
+    /* 왜 %인가? 유동적인 부모를 기준한 위치값이다. */
+    transform: rotate(45deg);
+    /* 가로,세로 크기 0 */
+    width: 0;
+    height: 0;
+    /* 보더탑 크기+색 설정 */
+    border-top: 14vw solid orangered;
+    /* 양쪽보더 크기+투명색 설정 */
+    border-left: 2vw solid transparent;
+    border-right: 2vw solid transparent;
 }
 /* 2-1-1. 로봇머리 */
 .head{
@@ -508,6 +532,7 @@ h1.logo{
     box-shadow: inset 0 0 20px blue,
     inset 0 0 50px 10px cyan;
     backdrop-filter: blur(6px);
+    
 
     /* [백드롭 필터효과] 
     - filter속성과 동일한 셋팅을 가지며
