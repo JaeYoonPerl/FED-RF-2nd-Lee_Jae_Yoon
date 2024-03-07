@@ -226,6 +226,7 @@ h1.logo{
 }
 /* 팔공통 */
 .arm{
+    z-index: 1;
     position: absolute;
     top: 25px;
     /* 부모는?.body */
@@ -310,10 +311,12 @@ h1.logo{
 }
 /* 왼팔  */
 .arm1{
+   
     left: -63px;
 }
 /* 오른팔  */
 .arm2{
+   
     right: -63px;
 }
 
@@ -429,12 +432,13 @@ h1.logo{
 }
 /* 왼어깨 */
 .shdr1{
+    z-index: 2;
     left: -81px;
     border-radius: 30px 0 0 30px;
 }
 /* 오른어깨 */
 .shdr2{
- 
+    z-index: 2;
     right: -81px;
     border-radius: 0 30px 30px 0;
 }
