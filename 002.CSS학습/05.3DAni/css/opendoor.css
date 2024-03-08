@@ -1,0 +1,16 @@
+@charset "utf-8";
+/* Open Door CSS - opendoor.css */
+
+/* 웹폰트 */
+@import url("https://fonts.googleapis.com/css2?family=Comfortaa:wght@700&display=swap");
+/* font-family: 'Comfortaa', cursive; */
+
+/* 초기화 */
+html,body,h1{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    background-color: #9c0;
+}
