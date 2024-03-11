@@ -82,8 +82,8 @@ white-space: nowrap;
     position: relative;
     /* 부모자격 - .smenu의 left값 */
     /* float: left; - flex로 전환 */
-    line-height: 78px;
-    padding: 0 32px;
+    /* line-height: 78px; -> 블록가상요소 밑줄이 아래로 밀려서 주석 */
+    padding: 27px 32px;
     font-weight: bold;
     /* 글자관련셋팅은 하위요소로 모두 상속됨 */
 }
@@ -187,17 +187,19 @@ white-space: nowrap;
 }
 
 /* 가상요소 밑줄을 위한 부모자격 */
-.gnb ul>li>a{
+/* .gnb ul>li>a{
     position: relative;
-}
+} */
 /* GNB 상위메뉴 오버시 밑줄애니 */
 .gnb ul>li>a::after{
     content: '';
-    position: absolute;
-    top: 53px;
-    /* 마우스 나갈때 left값 밀기 */
-    left: 100%;
-    /* 앱솔루트는 자동블록됨! */
+    /* 디자인 적용위해 block */
+    display: block;
+    /* position: absolute; */
+    /* 앱솔루트는 자동블록됨! -> 안씀 */
+    /* top: 53px; */
+    /* 마우스 나갈때 margin-left값 밀기 */
+    margin-left: 100%;
     width: 0;
     height: 2px;
     background-color: #fff;
