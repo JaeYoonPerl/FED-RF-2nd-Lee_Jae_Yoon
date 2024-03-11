@@ -223,6 +223,23 @@ white-space: nowrap;
     transition: width 0.3s;
 }
 
+/* 다국어 메뉴파트 */
+.multi-lang ul{
+    display: flex;
+    
+}
+.multi-lang ul li{
+    padding: 27px 5px;
+}
+/* 2번째 li 이후 가상요소 after 지우기 */
+.multi-lang ul li:nth-child(2)~li a::after{
+    display: none;
+}
+/* 2번째 li 이후 오버시 색상변경 */
+.multi-lang ul li:nth-child(2)~li a:hover{
+    color: aquamarine;
+}
+
 
 /* 메인영역 */
 .main-area {
@@ -234,3 +251,4 @@ white-space: nowrap;
     border: 10px dashed lightgreen;
     margin: 100px auto;
 }
+
