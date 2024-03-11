@@ -21,6 +21,7 @@
 .top-menu ul a{
     font-size: 1.4rem;
     line-height: 40;
+    font-weight: bold;
 }
 /* gnb 메뉴 */
 .gnb ul{
@@ -28,13 +29,20 @@
     justify-content: flex-end;
 }
 /* gnb 리스트 */
-.gnb ul li{
-    padding: 0 13px;
-}
+/* .gnb ul li{
+} */
 /* gnb a링크 */
 .gnb ul a{
+    display: block;
+    padding: 0 13px;
     font-size: 1.7rem;
     line-height: 60;
+    font-weight: bold;
+}
+
+/* GNB a링크 오버시 */
+.gnb ul a:hover{
+    color: red;
 }
 
 /************ 2. 메인영역 ************/
