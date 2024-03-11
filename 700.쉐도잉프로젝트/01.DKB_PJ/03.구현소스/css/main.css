@@ -1,7 +1,7 @@
 @charset "utf-8";
 /* 도깨비 PJ : 메인페이지 CSS - main.css */
 
-/* 리셋, 코어, 커먼 공통 외부 CSS 합치기 */
+/* 리셋, 코아, 커먼 공통 외부CSS 합치기 */
 @import url(./reset.css);
 @import url(./core.css);
 @import url(./common.css);
@@ -20,7 +20,7 @@ body * {
 .ban-area{
     height: 680px;
 }
-/* 2.5. 서브파트메뉴 */
+/* 2.5.서브파트메뉴 */
 .spart-menu{
     height: 68px;
 }
