@@ -56,7 +56,7 @@ const stxt = document.querySelector('.stxt span');
 for(let i=0; i<mini.length; i++){
     //대상 : mini.item(순번) 또는 mini[순번]
     mini[i].onclick = insertMini;
-    mini[i].addEventListener('click', insertMini);
+    //mini[i].addEventListener('click', insertMini);
 
     // 이벤트리스너를 사용한 방법도 있음
     // mini[i].addEventListener('click', insertMini);
@@ -70,6 +70,10 @@ for(let i=0; i<mini.length; i++){
 } /////for 문 /////////////
 
 // 3. 기능구현 함수 만들기 //////////////////////////
+
+// 함수에서 전역변수로 사용할 미니언즈 개수저장 변수
+let count = 0;
+
 
 /****************************************** 
     함수명: insertMini
@@ -97,6 +101,14 @@ function insertMini(){
         <img src="./images/Minions.png" 
         alt="미니언즈">
         `;
+        // 미니언즈 이미지개수 증가하기
+        count++;
     }//////for문/////
+
+    // 4. 미니언즈 개수 출력하기
+    // 대상: .stxt span -> stxt 변수
+    // 미니언즈 이미지에 3명의 미니언즈가 있으므로 
+    // 3을 곱하여 출력
+    stxt.innerText = count*3;
 
 }/////////// insertMini 함수 /////////////
