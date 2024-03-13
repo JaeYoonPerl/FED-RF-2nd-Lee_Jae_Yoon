@@ -107,22 +107,29 @@ body *{
 /* 상위메뉴 dt의 이미지 */
 .gnb dt img{
     margin-top: 10px;
-}
-.gnb dt img:nth-child(2), 
-.gnb dt img:nth-child(3){
+    /* 3개의 이미지 모두 숨기기 */
     display: none;
 }
 
+/* 처음 이미지 보이기 */
+.gnb dt img:nth-child(1){
+    display: inline;
+}
+/* 전체박스에 오버시 첫째이미지 숨기기 */
 #top-area:hover .gnb dt img:nth-child(1){
     display: none;
 }
+/* 전체 박스에 오버시 둘째 이미지 보이기  */
 #top-area:hover .gnb dt img:nth-child(2){
     display: inline;
 }
-#top-area .gnb dt:hover img:nth-child(2){
+
+/* 전체박스에 오버시, dl 오버시 둘째이미지 숨기기 */
+#top-area .gnb dl:hover dt img:nth-child(2){
     display: none;
 }
-#top-area .gnb dt:hover img:nth-child(3){
+/* 전체박스에 오버시, dl 오버시 셋째이미지 보이기 */
+#top-area .gnb dl:hover dt img:nth-child(3){
     display: inline;
 }
 
