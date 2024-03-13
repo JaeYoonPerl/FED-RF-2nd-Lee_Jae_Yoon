@@ -20,9 +20,9 @@ body{
     height: 100vh;
     background: url(../images/nav03/main_intro_banner_1_ksr.jpg) no-repeat center/cover;
 }
-body *{
+/* body *{
     outline: 2px dashed #ccc;
-}
+} */
 /* 중앙속박스 */
 .inbox{
     max-width: 1600px;
@@ -146,7 +146,37 @@ body *{
 {
     color: red;
 }
-
- 
-
 /****************** 1-3. 기타파트 ******************/
+/* 랭귀지 등 포함 박스 */
+.lang{
+    display: flex;
+    padding-top: 40px;
+}
+/* 박스 리스트 */
+.lang li{
+    padding: 0 10px;
+}
+.lang li a{
+    /* 글자색 흰색 */
+    color: #fff;
+}
+/* 두번째 li의 kor 글자 가상요소로 adp 넣기 */
+.lang li:nth-child(2) a::after{
+    content: 'KOR';
+    display: block;
+    margin-top: -15px;
+    margin-left: 15px;
+    font-size: 12px;
+}
+/* 세번째 li의 store 글자 가상요소로 넣기 */
+.lang li:nth-child(3) a::after{
+    content: 'STORE';
+    display: block;
+    margin-top: -15px;
+    margin-left: 15px;
+    font-size: 12px;
+}
+/* 박스 이미지 */
+.lang img{
+    height: 30px;
+}
