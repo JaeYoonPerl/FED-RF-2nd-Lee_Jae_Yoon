@@ -41,11 +41,29 @@ body *{
 }
 
 /****************** 1-1. 로고파트 ******************/
+/* 로고박스 */
+.logo{
+    padding-top: 20px;
+}
 /* 로고이미지 */
 .logo img{
     width: 100%;
-
+    min-width: 120px;
+    max-width: 145px;
 }
+/* 두번째 이미지 숨기기 */
+.logo img:nth-child(2){
+    display: none;
+}
+/* 오버시 첫번째 이미지 숨기기 */
+#top-area:hover .logo img:nth-child(1){
+   display: none;
+}
+/* 오버시 두번째 이미지 보이기 */
+#top-area:hover .logo img:nth-child(2){
+   display:inline;
+}
+
 /****************** 1-2. 네비파트 ******************/
 /* GNB박스 */
 .gnb{
