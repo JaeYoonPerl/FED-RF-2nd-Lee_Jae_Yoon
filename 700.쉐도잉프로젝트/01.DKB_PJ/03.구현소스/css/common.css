@@ -196,7 +196,9 @@
     margin: 0 auto;
     /* 플렉스자식 사이간격 
     gap: 위아래 양쪽 */
-    gap: 0 1vw
+    gap: 0 1vw;
+    /* 양쪽 패딩 */
+    padding: 0 1vw;
 }
 /* 캐릭터 개별박스 등분할 */
 .cat-inbox article{
@@ -205,6 +207,31 @@
 /* 캐릭터 이미지박스 */
 .imbx img{
     width: 100%;
+}
+/* 캐릭터 이름이미지 박스 */
+.iname{
+    display: block;
+    text-align: center;
+    margin-top: -19%;
+    /* 앱솔루트 없이 마진으로 상단이미지와 겹치게하기 
+    %의 기준은 마진주기전 박스의 세로크기를 기준한다.*/
+}
+/* 캐릭터 이름이미지 */
+.iname img{
+    width: 40%;
+}
+/* 두번째 이미지 숨기기 */
+.iname img:last-child{
+    display: none;
+}
+/* 오버시 두번째 이미지 보이기 */
+.cat-inbox article:hover .iname img:last-child{
+    display: inline;
+   
+}
+/* 오버시 첫번째 이미지 숨기기 */
+.cat-inbox article:hover .iname img:first-child{
+    display: none;
 }
 
 
