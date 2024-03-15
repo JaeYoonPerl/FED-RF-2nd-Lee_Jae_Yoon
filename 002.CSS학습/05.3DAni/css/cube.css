@@ -18,6 +18,20 @@ body{
     /* Z축 거리 나눔수 */
     --divide-num: 2;
 }
+/* 작동버튼 */
+.btngo{
+    position: fixed;
+    top: 5%;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 40px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+/* 버튼 오버시 */
+.btngo:hover{
+    background-color: lime;
+}
 
 /* 큐브 */
 .cube{
@@ -135,7 +149,15 @@ body{
 .rotate-cube{
     /* 애니메이션:이시이지반방마 */
     animation: cube-ani 3s linear infinite;
+    /* 처음에 멈춰있음 */
+    animation-play-state: paused;
+    /* paused(멈춤상태) / running(작동상태-기본값) */
 }
+/* 애니메이션 작동 클래스(.on) */
+.rotate-cube.on{
+    animation-play-state: running;
+}
+
 /* 큐브 애니메이션 키프레임 */
 @keyframes cube-ani {
     to{
