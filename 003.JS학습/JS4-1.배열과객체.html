@@ -298,7 +298,7 @@
             // 객체출력하기
             // 출력대상: target[3]
             target[3].innerHTML =`
-                당신이 좋아하는 남자배우는? ${SSG["너의 이름은?"]} 
+                당신이 좋아하는 남자배우는? ${SSG["너의이름은?"]} 
                 / 몸무게를 아세요? ${SSG.몸무게} <br>
                 생년월일은? ${SSG["생일"]} 
                 / 대표작은? ${SSG["대표작"]} 
@@ -443,9 +443,146 @@
                 // -> 2가지를 함수에 보내준다.
             }
             
+
+            /********************************************* 
+                [ 미션 : 내가 만든 객체 활용하기 ]
+                1. 주제 : 영화정보
+                2. 조건 : 객체의 변수명을 자신만의 이름으로작성함
+                단, 속성명을 동일하게 작성할것
+                (속성명을 샘플에서 정해줄 예정)
+                3. 객체를 쌤과 모두에게 공유(톡업)
+
+            *********************************************/
             
+            // 자신만의 오브젝트! -> 변경가능하게 let으로 선언한다.
+            let jaeObj ={}; 
+            //오브젝트 형만 만들고 객체내용은 아래에서!
+
+            // 1. 영화제목
+            jaeObj.title = "범죄도시2";
+            // 2. 감독
+            jaeObj.director="이상용";
+            // 3. 배우
+            jaeObj.actor="마동석,손석구";
+            // 4. 장르
+            jaeObj.genre="범죄";
+            // 5. 관람가
+            jaeObj.rating="19세";
+            // 6. 예고편
+            jaeObj.trailer = function(){
+                console.log('예고편:영화아이디');
+                // 예고편 플레이 함수호출
+                playMovie('aw9j_23nORs');
+            };  //////// trailer 메서드 ////
+
+            //객체확인
+            console.log("나의객체:",jaeObj);
+
+            // 화면에 정보를 보여주는 함수
+            const showMovieInfo = function(){
+                // 함수호출 확인
+                console.log('영화정보!!');
+
+                // 1. 출력대상: target[5]
+                // 2. 내용놓기 
+                target[5].innerHTML = `
+                ♣ 영화명 : ${jaeObj.title}
+                ♣ 감독 : ${jaeObj.director} <br>
+                ♣ 배우 : ${jaeObj.actor}
+                ♣ 장르 : ${jaeObj.genre}
+                ♣ 등급 : ${jaeObj.rating}
+                `;
+                // 툴팁 보이기
+                target[5].title = `클릭하시면 ${jaeObj.title}예고편을 보실 수 있습니다.`;
+
+                // 예고편 메서드 호출
+                target[5].onclick = jaeObj.trailer;
+
+            }; ///////showMovieInfo 함수/////
+
+            // 출력박스 CSS조정하기
+            target[5].style.lineHeight ="34px";
+            target[5].style.cursor ="pointer";
+            target[5].style.fontSize ="14px";
+
+            // 할당형 함수는 바로 호출시 하단에서 해야함
+            showMovieInfo();
+
+            // 함수호출 확인
+            console.log('영화정보!!');
 
            } //////////////loadFn 함수 ////////////////////
+
+           /************************************************** 
+            함수명 : playMovie
+            기능 : 영화 예고편 화면 띄우기
+           **************************************************/
+          function playMovie(mcode){
+            // mcode 영화 아이디
+            // 함수호출 및 전달값 확인
+            console.log('예고편 상영이요',mcode)
+
+            // 1. 대상선정 : #mvbox
+            let mvbox =document.querySelector('#mvbox');
+
+            // 2. 영화박스에 아이프레임 넣기
+            mvbox.innerHTML = `<div id="mv">
+                <!-- 유튜브 아이프레임 -->
+                <iframe src="https://www.youtube.com/embed/${mcode}?autoplay=1" allow="autoplay"></iframe>
+                <!-- 닫기버튼 -->
+                <button class="cbtn">x</button>
+                </div>`;
+
+
+            // 3. 삽입된 동영상 박스 CSS 설정하기
+            let mv = document.querySelector('#mv');
+            let css = mv.style;
+            css.position ="fixed";
+            css.top ="50%";
+            css.left ="50%";
+            css.transform ="translate(-50%,-50%)";
+            css.width ="700px";
+            css.height ="450px";
+            css.backgroundColor ="#000";
+            
+            // 4. 아이프레임 CSS설정
+            let ifr =mv.querySelector('iframe');
+            let ifrcss = ifr.style;
+            ifrcss.border ='none';
+            ifrcss.width ="100%";
+            ifrcss.height ="100%";
+
+
+            // 5. 닫기버튼 CSS셋팅하기
+            let cbtn = mv.querySelector('.cbtn');
+            // style.cssText로 셋팅
+            // 개별셋팅과 차이점은 이 설정은 모든 style속성의 CSS 설정을 덮어씀 
+            // 반면 한 속성씩 셋팅하는 것은 한껀씩 개별 업데이트됨
+            cbtn.style.cssText = `
+                position: absolute;
+                top : 0;
+                right : -70px;
+                width : 50px;
+                height : 50px;
+                border : none;
+                color : #fff;
+                background-color : blue;
+                font-size : 40px;
+                font-weight : bold;
+                border-radius: 50%;
+                cursor : pointer;
+                line-height : 50px;
+            `;
+
+            // 6. 닫기버튼 클릭시 #mv 제거하기
+            cbtn.onclick =function(){
+                mv.remove();
+                // remove()는 DOM 메서드임
+                // 선택요소를 제거함
+            };
+
+          } ////////////playMovie ///////////////
+
 
         </script>
         
@@ -462,5 +599,8 @@
         <div class="cont"></div>
         <div class="cont"></div>
         <div class="cont"></div>
+
+        <!-- 영화예고편용 박스 -->
+        <aside id="mvbox"></aside>
 </body>
 </html>
