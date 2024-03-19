@@ -89,26 +89,26 @@ dyObj.trailer = function () {
 };
 
 // 탐쌤의 오브젝트!
-// -> 변경가능하게 let으로 선언한다!
-let tomObj = {};
-// 오브젝트 형만 만들고 객체내용은 아래에서!
+        // -> 변경가능하게 let으로 선언한다!
+        let tomObj = {};
+        // 오브젝트 형만 만들고 객체내용은 아래에서!
 
-// 1. 영화제목
-tomObj.title = "럭키";
-// 2. 감독
-tomObj.director = "이계벽";
-// 3. 배우
-tomObj.actor = "유해진,조윤희";
-// 4. 장르
-tomObj.genre = "코미디";
-// 5. 관람가
-tomObj.ratings = "15세";
-// 6. 예고편
-tomObj.trailer = function () {
-    console.log("예고편:영화아이디");
-    // 예고편 플레이 함수호출!
-    playMovie("G2zyFe4Z5w0");
-}; ////// trailer 메서드 ////////
+        // 1. 영화제목
+        tomObj.title = "외계+인 2부";
+        // 2. 감독
+        tomObj.director = "최동훈";
+        // 3. 배우
+        tomObj.actor = "류준열, 김태리, 김우빈";
+        // 4. 장르
+        tomObj.genre = " 액션,다크 판타지,코미디";
+        // 5. 관람가
+        tomObj.ratings = "12세";
+        // 6. 예고편
+        tomObj.trailer = function () {
+          console.log("예고편:영화아이디");
+          // 예고편 플레이 함수호출!
+          playMovie("4uSn4Dem9i0");
+        }; ////// trailer 메서드 ////////
 
 //  유지영의 오브젝트 -> 변경가능하게 let으로 선언
 let JYObj = {}; /* 객체리터널 */
