@@ -471,7 +471,7 @@
             // 4. 장르
             jaeObj.genre="범죄";
             // 5. 관람가
-            jaeObj.rating="19세";
+            jaeObj.ratings="19세";
             // 6. 예고편
             jaeObj.trailer = function(){
                 console.log('예고편:영화아이디');
@@ -494,7 +494,7 @@
                 ♣ 감독 : ${jaeObj.director} <br>
                 ♣ 배우 : ${jaeObj.actor}
                 ♣ 장르 : ${jaeObj.genre}
-                ♣ 등급 : ${jaeObj.rating}
+                ♣ 등급 : ${jaeObj.ratings}
                 `;
                 // 툴팁 보이기
                 target[5].title = `클릭하시면 ${jaeObj.title}예고편을 보실 수 있습니다.`;
@@ -586,13 +586,66 @@
                     // 각자 자기의 변수를 찍는다.
                     console.log('변경전 영화객체?',jaeObj);
                     switch(btnTxt){
-                        case '민지초이스':
+                        // 자기자신 오브젝트
+                        case '재윤초이스':
                         // 객체의 내용을 덮어쓰기로 변경함
+                        jaeObj = myObj;
+                        break;
+
+                        case '민지초이스':
                         jaeObj = mjObj;
                         break;
 
                         case '이지영초이스':
                         jaeObj =jyObj;
+                        break;
+
+                        case '도연초이스': 
+                        jaeObj = dyObj;
+                        break;
+
+                        case '탐쌤초이스':
+                            jaeObj = tomObj;
+                        break;
+
+                        case '유지영초이스': 
+                        jaeObj = JYObj;
+                        break;
+
+                        case '노영초이스': 
+                        jaeObj = nyObj;
+                        break;
+
+                        case '우진초이스': 
+                        jaeObj = wjObj;
+                        break;
+
+                        case '영진초이스': 
+                        jaeObj = yjObj;
+                        break;
+
+                        case '은경초이스': 
+                        jaeObj = lekObj;
+                        break;
+
+                        case '지현초이스': 
+                        jaeObj = jjob;
+                        break;
+
+                        case '수진초이스': 
+                        jaeObj = suObj;
+                        break;
+
+                        case '윤철초이스': 
+                        jaeObj = ironObj;
+                        break;
+
+                        case '정윤초이스': 
+                        jaeObj = jjyObj;
+                        break;
+
+                        case '현우초이스': 
+                        jaeObj = koObj;
                         break;
                     }
                     console.log('변경후 영화객체?',jaeObj);
@@ -600,6 +653,16 @@
                     // 변경데이터 확인 후 바로 위박스
                     // 영화정보 업데이트 함수를 호출한다.
                     showMovieInfo();
+                    // JS클래스 내장객체: classList
+                    // add() / remove() 메서드사용
+
+                    // 버튼에 클래스 on 모두 뺴기
+                    for(let i=0;i<cntBtn;i++){
+                        choiceBtn[i].classList.remove('on');
+                    }///////for문///////
+                    // 클릭된 버튼에 클래스 on넣기
+                    // 클릭된 버튼 자신은 this
+                    this.classList.add('on');
 
                 }; //// click 이벤트 함수////
                 // console.log(choiceBtn[i]);

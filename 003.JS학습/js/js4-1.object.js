@@ -1,25 +1,28 @@
 // 나의 영화 초이스 객체 JS
-
+  
 // 이재윤의 오브젝트! -> 변경가능하게 let으로 선언한다.
-let jaeObj = {};
+let myObj ={}; 
 //오브젝트 형만 만들고 객체내용은 아래에서!
 
 // 1. 영화제목
-jaeObj.title = "범죄도시2";
+myObj.title = "범죄도시2";
 // 2. 감독
-jaeObj.director = "이상용";
+myObj.director="이상용";
 // 3. 배우
-jaeObj.actor = "마동석,손석구";
+myObj.actor="마동석,손석구";
 // 4. 장르
-jaeObj.genre = "범죄";
+myObj.genre="범죄";
 // 5. 관람가
-jaeObj.rating = "19세";
+myObj.ratings="19세";
 // 6. 예고편
-jaeObj.trailer = function () {
-    console.log("예고편:영화아이디");
+myObj.trailer = function(){
+    console.log('예고편:영화아이디');
     // 예고편 플레이 함수호출
-    playMovie("aw9j_23nORs");
-}; //////// trailer 메서드 ////
+    playMovie('aw9j_23nORs');
+};  //////// trailer 메서드 ////
+
+
+// 나의 영화 초이스 객체 JS
 
 // 민지의 오브젝트!
 // 자신만의 오브젝트! -> 변경가능하게 let으로 선언한다!
@@ -35,12 +38,12 @@ mjObj.actor = "김민희,김태리";
 // 4. 장르
 mjObj.genre = "드라마";
 // 5. 관람가
-mjObj.rating = "19세";
+mjObj.ratings = "19세";
 // 6. 예고편
 mjObj.trailer = function () {
-    console.log("예고편:영화아이디");
-    // 예고편 플레이 함수 호출!
-    platMovie("whldChqCsYk");
+  console.log("예고편:영화아이디");
+  // 예고편 플레이 함수 호출!
+  playMovie("whldChqCsYk");
 }; /////////// trailer 메서드 ///////////
 
 //이지영의 오브젝트 -> 변경 가능하게 let으로
@@ -62,9 +65,9 @@ jyObj.ratings = "12세";
 
 //6. 예고편
 jyObj.trailer = function () {
-    console.log("예고편:8m6Cz1GJG3s");
-    //예고편 플레이 함수 호출!
-    playMovie("8m6Cz1GJG3s");
+  console.log("예고편:8m6Cz1GJG3s");
+  //예고편 플레이 함수 호출!
+  playMovie("8m6Cz1GJG3s");
 }; /////////////trailer메서드/////////////
 
 // 도연의 오브젝트 -> 변경가능하게 let으로 선언
@@ -80,35 +83,35 @@ dyObj.actor = "안소니 곤잘레스, 가엘 가르시아 베르날";
 // 4. 장르
 dyObj.genre = "애니메이션, 모험, 코미디";
 //5. 관람가
-dyObj.rating = "전체관람가";
+dyObj.ratings = "전체관람가";
 // 6. 예고편
 dyObj.trailer = function () {
-    console.log("예고편:영화아이디");
-    // 예고편 플레이 함수호출
-    playMovie("LmS5KMJTWlA");
+  console.log("예고편:영화아이디");
+  // 예고편 플레이 함수호출
+  playMovie("LmS5KMJTWlA");
 };
 
 // 탐쌤의 오브젝트!
-        // -> 변경가능하게 let으로 선언한다!
-        let tomObj = {};
-        // 오브젝트 형만 만들고 객체내용은 아래에서!
+          // -> 변경가능하게 let으로 선언한다!
+          let tomObj = {};
+          // 오브젝트 형만 만들고 객체내용은 아래에서!
 
-        // 1. 영화제목
-        tomObj.title = "외계+인 2부";
-        // 2. 감독
-        tomObj.director = "최동훈";
-        // 3. 배우
-        tomObj.actor = "류준열, 김태리, 김우빈";
-        // 4. 장르
-        tomObj.genre = " 액션,다크 판타지,코미디";
-        // 5. 관람가
-        tomObj.ratings = "12세";
-        // 6. 예고편
-        tomObj.trailer = function () {
-          console.log("예고편:영화아이디");
-          // 예고편 플레이 함수호출!
-          playMovie("4uSn4Dem9i0");
-        }; ////// trailer 메서드 ////////
+          // 1. 영화제목
+          tomObj.title = "외계+인 2부";
+          // 2. 감독
+          tomObj.director = "최동훈";
+          // 3. 배우
+          tomObj.actor = "류준열, 김태리, 김우빈";
+          // 4. 장르
+          tomObj.genre = " 액션,다크 판타지,코미디";
+          // 5. 관람가
+          tomObj.ratings = "12세";
+          // 6. 예고편
+          tomObj.trailer = function () {
+            console.log("예고편:영화아이디");
+            // 예고편 플레이 함수호출!
+            playMovie("4uSn4Dem9i0");
+          }; ////// trailer 메서드 ////////
 
 //  유지영의 오브젝트 -> 변경가능하게 let으로 선언
 let JYObj = {}; /* 객체리터널 */
@@ -126,9 +129,9 @@ JYObj.genre = "어린이/모험";
 JYObj.ratings = "전체관람가";
 // 6. 예고편
 JYObj.trailer = function () {
-    console.log("예고편 : 영화아이디");
-    // 예고편 플레이 함수호출!
-    playMovie("UajkLLXF8x0");
+  console.log("예고편 : 영화아이디");
+  // 예고편 플레이 함수호출!
+  playMovie("UajkLLXF8x0");
 }; ///////trailer메서드
 
 // 노영의 오브젝트!
@@ -150,9 +153,9 @@ nyObj.ratings = "15세";
 
 // 6. 예고편
 nyObj.trailer = function () {
-    console.log("예고편:영화아이디");
-    // 예고편 플레이 함수호출!
-    playMovie("jrQ-pInzXHE");
+  console.log("예고편:영화아이디");
+  // 예고편 플레이 함수호출!
+  playMovie("jrQ-pInzXHE");
 }; //// trailer메서드 ////////
 
 // 우진의 오브젝트 -> 변경가능하게 let으로 선언한다
@@ -171,9 +174,9 @@ wjObj.genre = "범죄";
 wjObj.ratings = "15세";
 // 6. 예고편
 wjObj.trailer = function () {
-    console.log("예고편:Yh7J-HhXZjw");
-    // 예고편 플레이 함수호출
-    playMovie("Yh7J-HhXZjw");
+  console.log("예고편:Yh7J-HhXZjw");
+  // 예고편 플레이 함수호출
+  playMovie("Yh7J-HhXZjw");
 }; ///// trailer 메서드 ////////////
 
 // 홍영진 오브젝트!
@@ -188,14 +191,14 @@ yjObj.director = "장재현";
 // 3. 배우
 yjObj.actor = "최민식,김고은,유해진,이도현";
 // 4. 장르
-(yjObj.genre = 미스터리), 스릴러, 오컬트;
+yjObj.genre = "미스터리, 스릴러, 오컬트";
 // 5. 관람가
 yjObj.ratings = "15세";
 // 6. 예고편
 yjObj.trailer = function () {
-    console.log("예고편:영화아이디");
-    // 예고편 플레이 함수호출!
-    playMovie("fRkOWmfZjkY");
+  console.log("예고편:영화아이디");
+  // 예고편 플레이 함수호출!
+  playMovie("fRkOWmfZjkY");
 }; ////// trailer 메서드 ////////
 
 /* 은경 오브젝트! */
@@ -216,9 +219,9 @@ lekObj.genre = "로맨스";
 lekObj.ratings = "전체관람가";
 // 6. 예고편
 lekObj.trailer = function () {
-    console.log("예고편:영화아이디");
-    // 예고편 플레이 함수 호출!
-    playMovie("L9y9aJ13oCI");
+  console.log("예고편:영화아이디");
+  // 예고편 플레이 함수 호출!
+  playMovie("L9y9aJ13oCI");
 }; /// trailer 메서드
 
 //지현 오브젝트 -> 변경가능하게 let으로
@@ -228,16 +231,16 @@ let jjob = {};
 //1. 영화제목
 jjob.title = "7광구";
 //2. 감독
-jjob.drector = "김지훈";
+jjob.director = "김지훈";
 //3. 배우
 jjob.actor = "하지원,안성기";
-jjob.ganre = "SF";
+jjob.genre = "SF";
 jjob.ratings = "15세";
 jjob.trailer = function () {
-    console.log("예고편:영화아이디");
-    //예고편 플레이 함수 호출
-    playMovie("CrVrk5Vy96o");
-}; ///////////////trailer메서드////////////////
+  console.log("예고편:영화아이디");
+  //예고편 플레이 함수 호출
+  playMovie("CrVrk5Vy96o");
+}; ///////////////trailer메서드////////////////////
 
 // 수진 오브젝트 -> 변경 가능하게 let으로 선언
 let suObj = {};
@@ -260,9 +263,9 @@ suObj.ratings = "청소년 관람불가";
 
 // 6. 예고편 트레일러
 suObj.trailer = function () {
-    console.log("예고편:영화아이디");
-    // 예고편 플레이 함수 호출
-    playMovie("8Ltpa4QmnuU");
+  console.log("예고편:영화아이디");
+  // 예고편 플레이 함수 호출
+  playMovie("8Ltpa4QmnuU");
 }; ////// trailer 함수 //////
 
 //윤철 오브젝트! -> 변경가능하게 let 으로 선언한다!
@@ -281,8 +284,52 @@ ironObj.genre = "SF";
 ironObj.ratings = "12세";
 // 6.예고편
 ironObj.trailer = function () {
-    console.log("예고편:영화아이디");
-    //  예고편 플레이 함수호출!
+  console.log("예고편:영화아이디");
+  //  예고편 플레이 함수호출!
 
-    playMovie("vABfjuXZhYY");
+  playMovie("vABfjuXZhYY");
 }; ///////////trailer 메서드 /////////////////
+
+// 정윤이의 오브젝트
+// 변경가능하게 let으로 선언한다
+let jjyObj = {};
+// 오브젝트 형만 만들고 객체내용은 아래에서
+
+// 1. 영화제목
+jjyObj.title = "용감한 돌고래 벨루와 바닷속 친구들";
+// 2. 감독
+jjyObj.director = "니콜라 르메이";
+// 3. 배우
+jjyObj.actor = "돌고래 범고래 참치";
+// 4. 장르
+jjyObj.genre = "애니메이션";
+// 5. 관람가
+jjyObj.ratings = "전체관람가";
+// 6. 예고편
+jjyObj.trailer = function () {
+  console.log("예고편:영화아이디");
+  // 예고편 플레이 함수호출
+  playMovie("_bm91mlFaJI");
+}; ////// trailer 함수 //////
+
+// 현우의 오브젝트!
+// 자신만의 오브젝트! -> 변경가능하게 let으로 선언한다!
+let koObj = {};
+// 오브젝트 형만 만들고 객체내용은 아래에서!
+
+// 1. 영화 제목
+koObj.title = "악마를 보았다";
+// 2. 감독
+koObj.director = "김지운";
+// 3. 배우
+koObj.actor = "이병헌,최민식";
+// 4. 장르
+koObj.genre = "범죄";
+// 5. 관람가
+koObj.ratings = "19세";
+// 6. 예고편
+koObj.trailer = function () {
+  console.log("예고편:영화아이디");
+  // 예고편 플레이 함수 호출!
+  playMovie("xwWgp1bqVwE");
+}; /////////// trailer 메서드 ///////////
