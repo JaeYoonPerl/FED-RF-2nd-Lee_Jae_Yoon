@@ -25,6 +25,8 @@
             -> 소괄호안의 값을 안쓰면 이미지를 채우는 중심원이 나옴
         */
         .clip-circle{
+           clip-path: 
+           circle(30% at 40% 50%);
            /* clip-path: 
            circle(123px at 123px 143px); */
         }
@@ -34,6 +36,8 @@
             -> 소괄호안의 값을 안쓰면 이미지를 채우는 타원이 나옴
         */
         .clip-ellipse{
+            clip-path: 
+            ellipse(41% 29% at 42% 53%);
             /* clip-path: 
             ellipse(176px 72px at 182px 154px); */
         }
@@ -42,8 +46,9 @@
             -> 소괄호안을 비울 수 없다!
             -> 각 좌표값은 px,%모두 가능
         */
-        .clip-polygon{
-        }
+        .clip-polygon {
+    clip-path: polygon(0 55%, 49% 40%, 59% 5%, 67% 0%, 70% 0%, 73% 3%, 75% 14%, 77% 22%, 75% 24%, 70% 19%, 68% 18%, 65% 25%, 64% 33%, 72% 47%, 73% 66%, 68% 77%, 65% 81%, 64% 82%, 59% 87%, 23% 80%);
+}
 
         /* 4. svg클리핑 
             clip-path: url(#아이디명)
@@ -51,18 +56,32 @@
             그 모양만큼만 이미지가 보임
         */
         .clip-svg{
+            clip-path: url(#myClip);
+        }
+        .clip-svg2{
+            clip-path: url(#myClip2);
         }
 
         /* 
-            [ CSS Masking ] - 아직 웹표준기술아님!
+            [ CSS Masking ] - 2023-12 웹표준기술됨
             - 이미지의 일부를 자연스럽게 감추는 기법
             - 검정색부분은 보이는 영역, 투명색은 숨기는 영역
             - 셋팅법이 배경이미지 셋팅과 유사
                 linear-gradient와 같은 그라데이션
                 CSS함수를 이용하여 셋팅함
+            - 이미지가 검정색에서 투명으로 바뀌는 것을 url로 호출하여 사용하면
+            마스킹효과가 적용된다.
         */
         .masking1{
-
+            mask-image: linear-gradient(to right,black,transparent 80% );
+           
+        }
+        .masking2{
+            /* 배경설정과 유사한 세팅으로 설정함 */
+            mask-image: url(./images/letter.png);
+            mask-repeat: no-repeat;
+            mask-position: center;
+            mask-size: 500px;
         }
 
 
@@ -74,6 +93,7 @@
     <img src="images/img1.jpg" alt="image" class="clip-ellipse">
     <img src="images/img3.jpg" alt="image" class="clip-polygon">
     <img src="images/img5.jpg" alt="image" class="clip-svg">
+    <img src="images/img5.jpg" alt="image" class="clip-svg2">
     <svg>
         <defs>
             <clippath id="myClip">
@@ -82,8 +102,23 @@
             </clippath>
         </defs>
     </svg>
-
-    <!-- 마스킹효과주기 -->
+    <!-- 마스킹효과주기1 -->
     <img src="images/img4.jpg" alt="image" class="masking1">
+    <!-- 마스킹효과주기2-->
+    <img src="images/img4.jpg" alt="image" class="masking2">
+
+    <!-- 추가SVG -->
+    <svg viewBox="0 0 400 300">
+        <defs>
+          <clippath id="myClip2">
+            <polygon
+              points="295.51,243.67 210.09,221.63 143.51,279.5 138.08,191.45 62.47,146.01 144.53,113.63 164.38,27.68 220.53,95.72 
+     308.41,88.04 261.05,162.47 "
+            />
+          </clippath>
+        </defs>
+    </svg>
+
+    
 </body>
 </html>
