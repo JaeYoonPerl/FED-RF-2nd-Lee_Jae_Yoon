@@ -43,32 +43,84 @@ addEvt(window,"DOMContentLoaded", loadFn);
 function loadFn() {
     console.log("로딩완료!");
 
+    
     // 이동버튼 대상: .abtn 
     const abtn =qsa('.abtn');
     // 변경대상 : #slide
     const slide = qs('#slide');
     // console.log(abtn,slide);
-
+    
+    // 왼쪽 이동버튼 처음에 숨기기
+    abtn[0].style.display ='none';
+    
     // 슬라이드 순번 전역변수
     let snum=0;
 
 
+    // 2. 버튼을 모두 이벤트 설정하기
+    for(let x of abtn){
+        x.onclick =goSlide;
+    } /// for of ///
+
     // 2. 오른쪽 버튼 클릭시 기능구현
-    abtn[1].onclick = () => {
-        // 슬라이드 순번 증가
-        snum++;
-        console.log('이동%:',(-100*snum)+'%')
-        slide.style.left = (-100*snum)+'%';
-        slide.style.transition = '.6s ease-in-out';
-    };
+    // abtn[1].onclick = () => {
+    //     // 슬라이드 순번 증가
+    //     snum++;
+    //     console.log('이동%:',(-100*snum)+'%')
+    //     slide.style.left = (-100*snum)+'%';
+    //     slide.style.transition = '.6s ease-in-out';
+    // };
     // 3. 왼쪽쪽 버튼 클릭시 기능구현
-    abtn[0].onclick = () => {
-        // 슬라이드 순번 증가
-        snum--;
-        console.log('이동%:',(-100*snum)+'%')
-        slide.style.left = (-100*snum)+'%';
-        slide.style.transition = '.6s ease-in-out';
-    };
+    // abtn[0].onclick = () => {
+    // };
+        /****************************************************** 
+         함수명: goSlide
+         기능: 슬라이드 이동
+         ******************************************************/
+        function goSlide(){
+
+            // 1.오른쪽 버튼인 .ab2인가?
+            let isRbtn = this.classList.contains('ab2'); 
+            // [classList 객체의 contanins() 메서드]
+            // -> 해당요소의 특정 클래스인지 여부를 리턴함
+            // 해당클래스가 있으면 true, 없으면 false
+
+            // 함수호출확인
+            console.log('나 슬라이드야~!',this,isRbtn);
+            // this는 호출한 버튼 자신
+
+            // 2. 오른쪽 버튼이면 ++, 아니면 --
+            // 슬라이드 순번 증감
+            isRbtn? snum++ :snum--;
+            
+            // 3. 한계값 설정하기
+            // 한계값일때 각 버튼 숨기기
+            // 3-1. 오른쪽 버튼일 경우 0보다 작으면 숨기기 
+            // snum은 0으로 고정
+            if(snum<0){
+                snum=0;
+            } //// if ///////////
+            // snum은 4로 고정
+            else if(snum>4){
+                snum=4;
+            } // else if
+            if(snum ===0 || snum ===4){
+                this.style.display = 'none';  
+            } ///if
+            else {
+                // 버튼 다시 보이기
+                for(let x of abtn){
+                    x.style.display = 'block';
+                } // for of
+            }// else
+
+            // snum++;
+            console.log('이동%:',(-100*snum)+'%');
+            slide.style.left = (-100*snum)+'%';
+            slide.style.transition = '.6s ease-in-out';
+         
+        } ////////////// goSlide 함수 ///////
+
     
 } //////////////// loadFn 함수 ///////////////
 /////////////////////////////////////////////
