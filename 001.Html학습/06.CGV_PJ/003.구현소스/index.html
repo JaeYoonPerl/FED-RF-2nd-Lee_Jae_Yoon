@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CGV에 오신걸 환영합니다!</title>
     <link rel="stylesheet" href="./css/main.css">
+    <!-- 메인 JS 불러오기
+    defer 속성을 넣어서 html로딩후 실행함! -->
+    <script src="./js/main.js" defer></script>
     <!-- 자바스크립트 코드 구역 -->
     <script>
         // JS 코드 구역
@@ -13,11 +16,11 @@
         // 그래서 함수라는 코드저장소를 만들고 호출시에만 실행되도록한다
 
         // JS함수 -> function 함수명(){코드}
-        function 멍멍이(먹이){
-            alert(먹이);
-                    document.getElementById('ifr').src = "https://www.youtube.com/embed/"+먹이;
+        // function 멍멍이(먹이){
+        //     alert(먹이);
+        //             document.getElementById('ifr').src = "https://www.youtube.com/embed/"+먹이;
 
-        } ///////멍멍이 함수구역///////////
+        // } ///////멍멍이 함수구역///////////
 
 
     </script>
@@ -40,35 +43,82 @@
         <nav class="poster-menu">
             <ul>
                 <li>
-                    <a href="#" 
-                    onclick="멍멍이('rjW9E1BR_30')">
+                    <a href="#">
                         <img src="./images/m1.jpg" alt="파묘">
+                        <!-- 영화 정보박스 -->
+                        <div class="mv-info">
+                            <ol>
+                                <li>파묘</li>
+                                <li>최민식 김고은</li>
+                                <li>미스터리 </li>
+                            </ol>
+                        </div>
                     </a>
                 </li>
                 <li>
                     <a href="#">
                         <img src="./images/m2.jpg" alt="이프온리">
+                      <!-- 영화 정보박스 -->
+                        <div class="mv-info">
+                            <ol>
+                                <li>이프 온리</li>
+                                <li>제니퍼 러브 휴잇 폴 니콜스 </li>
+                                <li>멜로/로맨스 </li>
+                            </ol>
+                        </div>
                     </a>
                 </li>
                 <li>
                     <a href="#">
-                        <img src="./images/m3.jpg" alt="건국전쟁">
+                        <img src="./images/m3.jpg" alt="댓글부대">
+                      <!-- 영화 정보박스 -->
+                        <div class="mv-info">
+                            <ol>
+                                <li>댓글부대</li>
+                                <li>손석구 김성철</li>
+                                <li>범죄</li>
+                            </ol>
+                        </div>
                     </a>
                 </li>
                 <li>
                     <a href="#">
                         <img src="./images/m4.jpg" alt="웡카">
+                      <!-- 영화 정보박스 -->
+                        <div class="mv-info">
+                            <ol>
+                                <li>웡카</li>
+                                <li>티모시 샬라메</li>
+                                <li>판타지 드라마 </li>
+                            </ol>
+                        </div>
                     </a>
                 </li>
                 <li>
                     <a href="#">
                         <img src="./images/m5.jpg" alt="소풍">
+                      <!-- 영화 정보박스 -->
+                        <div class="mv-info">
+                            <ol>
+                                <li>소풍</li>
+                                <li>나문희 김영옥 박근형</li>
+                                <li>드라마 </li>
+                            </ol>
+                        </div>
                     </a>
                 </li>
                 <li>
                     <a href="#"
                     onclick="멍멍이('w99yyjtYanE')">
                         <img src="./images/m6.jpg" alt="시민덕희">
+                      <!-- 영화 정보박스 -->
+                        <div class="mv-info">
+                            <ol>
+                                <li>시민덕희</li>
+                                <li>라미란 공명</li>
+                                <li>드라마 </li>
+                            </ol>
+                        </div>
                     </a>
                 </li>
             </ul>
