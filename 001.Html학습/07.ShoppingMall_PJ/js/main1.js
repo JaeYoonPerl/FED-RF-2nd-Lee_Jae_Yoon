@@ -54,16 +54,39 @@ addEvt(window,"DOMContentLoaded", loadFn);
     기능: 로딩 후 버튼 이벤트 및 기능구현
 ******************************************/
 function loadFn() {
-    console.log("로딩완료!");
+    // console.log("로딩완료!");
 
     
     // 이동버튼 대상: .abtn 
     const abtn =qsa('.abtn');
     // 변경대상 : #slide
     const slide = qs('#slide');
+    // 블릿버튼 : .indic
+    let indic = document.querySelector('.indic');
     // console.log(abtn,slide);
     
-    
+    /////////////초기 셋팅하기 ///////
+    // 5개의 슬라이드와 블릿을 만들어준다.
+    for(let i=0;i<5;i++){
+        //슬라이드 넣기
+        slide.innerHTML +=`
+        <li data=seq="${i}">
+        <img src="images/slide0${i+1}.jpg" 
+        alt="slide">
+        </li>
+        `;
+        // 블릿 넣기
+        indic.innerHTML +=`
+        <li ${i===0?'class="on"':''}>
+        <img src="images/dot1.png" alt="흰색">
+        <img src="images/dot2.png" alt="회색">
+        </li>
+        `;
+    } ///// for ////
+
+    // li를 생성한 후 그 li를 다시 수집한다.
+    // 블릿의 li까지 수집! indic 변수
+    indic = document.querySelectorAll('indic li');
     
     // 슬라이드 순번 전역변수
     let snum=0;
@@ -172,6 +195,28 @@ function loadFn() {
                 }, 0);
 
             } ///else
+            // 3. 블릿을 위해 읽어올 슬라이드 순번 구하기
+            // 현재 순번은 몇번째 슬라이드의 data-seq속성값이다.
+            // 오른쪽 버튼은 이동후 잘라내므로 두번째 순번[1]
+            // 왼쪽 버튼은 먼저 앞에 붙이고 이동하므로 첫번째 순번[0]
+            let seq = slide.querySelectorAll('li')[isRbtn?1:0]
+            .getAttribute('data-seq');
+            console.log('블릿이 읽어올 슬순번:',seq,'/데이터형:',typeof seq);
+
+            // 4. 블릿변경하기 ////
+            // 모든 클래스 on 지우기 + 현재 순번 클래스 넣기
+            indic.forEach((ele,idx)=>{
+                // ele - 각각의 li, idx - 각각의 순번
+                if(idx == seq){ // 현재 순번 on 넣기
+                    // ==으로 비교해야 결과가 나옴
+                    // data-seq속성은 문자형숫자이므로
+                    // ===은 형까지 비교하기 때문에 안나옴
+                    ele.classList.add('on');
+                } //if
+                else{ //나머지는 on빼기
+                    ele.classList.remove('on');
+                } //else ///
+            }); // forEach
 
             
          
