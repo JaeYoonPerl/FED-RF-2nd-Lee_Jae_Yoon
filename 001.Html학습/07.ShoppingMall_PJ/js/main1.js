@@ -54,7 +54,7 @@ addEvt(window,"DOMContentLoaded", loadFn);
     기능: 로딩 후 버튼 이벤트 및 기능구현
 ******************************************/
 function loadFn() {
-    // console.log("로딩완료!");
+    console.log("로딩완료!");
 
     
     // 이동버튼 대상: .abtn 
@@ -70,7 +70,7 @@ function loadFn() {
     for(let i=0;i<5;i++){
         //슬라이드 넣기
         slide.innerHTML +=`
-        <li data=seq="${i}">
+        <li data-seq="${i}">
         <img src="images/slide0${i+1}.jpg" 
         alt="slide">
         </li>
@@ -195,6 +195,7 @@ function loadFn() {
                 }, 0);
 
             } ///else
+
             // 3. 블릿을 위해 읽어올 슬라이드 순번 구하기
             // 현재 순번은 몇번째 슬라이드의 data-seq속성값이다.
             // 오른쪽 버튼은 이동후 잘라내므로 두번째 순번[1]
