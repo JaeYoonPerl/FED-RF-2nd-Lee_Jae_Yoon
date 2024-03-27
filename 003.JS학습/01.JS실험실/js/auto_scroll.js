@@ -112,15 +112,9 @@ function wheelFn(e){ // 이벤트전달변수(자동)
     // scrollTo(0,y축이동값)
     window.scrollTo(0,pos);
 
-    // 6. 전체 메뉴에 on빼기
-    for(let x of gnb){
-        x.parentElement.classList.remove('on');
-    }
-    // 7. 해당 순번에 on넣기
-    gnb[pgNum].parentElement.classList.add('on');
-    // parentElement는 선택요소의 부모요소다
-    // gnb[pgNum]은 해당순번의 메뉴 a요소다
-
+    // 6. 해당메뉴 순번on넣기/나머지 on 빼기
+    chgMenu(pgNum);
+    
 
 } /////////// wheelFn 함수 ////////////////
 ///////////////////////////////////////////
