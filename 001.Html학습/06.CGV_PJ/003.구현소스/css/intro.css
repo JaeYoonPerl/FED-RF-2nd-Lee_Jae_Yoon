@@ -42,7 +42,7 @@ body{
     font-family: 'Audiowide';
     font-size: 3.4rem;
     white-space: nowrap;
-    transition: .4s ease-out .4s;
+    transition: .4s ease-out .2s;
 }
 /* CGV 로고 이미지 */
 #enter img{
