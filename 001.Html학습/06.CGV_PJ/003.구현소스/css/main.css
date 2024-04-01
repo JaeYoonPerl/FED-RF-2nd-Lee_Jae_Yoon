@@ -212,7 +212,7 @@ body *{
     position: absolute;
     top: -25px;
     right: 85px;
-    width: 150px;
+    width: 0px; /* 오버시 150px */
     height: 80px;
     background: url(../images/screen.gif)no-repeat -50% center/auto 80%;
     z-index: -2;
@@ -222,6 +222,7 @@ body *{
 }
 /* 오버시 스크린 보이기 */
 .gnb:hover .cam::after{
+    width: 150px;
     opacity: 1;
     /* 트랜지션 */
     transition: opacity 0.3s .6s;
