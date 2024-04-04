@@ -13,14 +13,13 @@ import myFn from "./my_function.js";
 // [import 방법3 : 한꺼번에 불러오기 - *사용]
 // -> import * as 별칭 from 경로
 // -> 별칭 이름으로 한꺼번에 불러온 값을 객체에 담음
-// -> 모듈용 전용객체에 저장하여 객체.변수명으로 사용한다. 
+// -> 모듈용 전용객체에 저장하여 객체.변수명으로 사용한다.
 import * as txtData from "./text_data.js";
 
 // 불러온 객체 확인
 // console.log(myFn,mTitle,sTitle,personInfo,mvData);
 // console.log(myFn, mTit, sTit, pInfo, mdt);
 //console.log(txtData, txtData.mTitle);
-
 
 // [export default 로 내보낸 단일 함수 불러오기]
 // import makeMessage from "./msg_format.js";
@@ -67,25 +66,53 @@ console.log(makeMsg);
     -> msg_format.js
 ***************************************************/
 
-
-
 // 요구사항 : 각 출력박스에 불러온 메시지 : 출력하기
 
 // 1. 대상선정 : 출력박스
 // (1) 타이틀 출력박스 : .tpart
-const titBox = myFn.qs('.tpart');
+const titBox = myFn.qs(".tpart");
 // (2) 내용 출력박스 : #demo
-const contBox = myFn.qs('#demo');
+const contBox = myFn.qs("#demo");
 // (3) 영화 정보 출력박스 : .mvpart
-const mvBox = myFn.qs('.mvpart');
+const mvBox = myFn.qs(".mvpart");
 
-console.log('대상:', titBox,contBox, mvBox);
+console.log("대상:", titBox, contBox, mvBox);
 
 // 2. 변경적용하기
 // (1) 타이틀 출력하기 : 큰제목 + 작은 제목
-titBox.innerHTML =`
+titBox.innerHTML = `
     <h2>${txtData.mTitle}</h2>
     <h3>${txtData.sTitle}</h3>
 `;
 
+// (2) 내용 넣기 : 이름과 나이를 소개하는 메시지 넣기
+contBox.innerHTML = makeMsg("공유", 46);
+contBox.innerHTML += makeMsg("톰행크스", 60);
+contBox.innerHTML += makeMsg("졸리", 49);
 
+// 이름과 나이가 셋팅된 personInfo 배열을 순회하여
+// 메시지 함수를 호출해서 메시지를 찍어준다.
+// txtData.personInfo.forEach(
+//     v=>contBox.innerHTML+=makeMsg(v[0],v[1]));
+
+// 길게 변경 : v[0]은 이름, v[1]은 나이
+txtData.personInfo.forEach((v) => {
+    contBox.innerHTML += makeMsg(v[0], v[1]);
+});
+
+// (3) 영화 정보 뿌리기 
+// ol>li형식으로 .mvpart 박스에 영화 정보를 구성함
+// 데이터는 txtData.mvData 배열임!
+mvBox.innerHTML = "<h2>♥ 영화위시리스트 ♥</h2>";
+
+txtData.mvData.forEach(v=>{
+    mvBox.innerHTML += `
+        <ol>
+            <li>★제목 : ${v[0]}</li>
+            <li>★장르 : ${v[1]}</li>
+            <li>★감독 : ${v[2]}</li>
+            <li>★주연 : ${v[3]}</li>
+            <li>★한마디 : ${v[4]}</li>
+        </ol>
+    `;
+}); // forEach
