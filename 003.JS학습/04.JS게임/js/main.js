@@ -90,16 +90,24 @@ function goGame(){
         goR1(); // 인터발호출함수
     } ///if
     else if(btxt ==='거북출발'){
-        // 거북멈춤 상태값이 true이면 함수나가(return)
+        // 1.거북멈춤 상태값이 true이면 함수나가(return)
         if(t1Stop) return;
 
 
-        // 거북의 설정된 값만큼 이동하기
+        // 2.거북의 설정된 값만큼 이동하기
         t1pos += T1_NUM;
         t1.style.left = t1pos + 'px';
 
-        // 토끼 자동호출
+        // 3.거북버튼 클릭후 포커스로 인해 엔터버튼을 
+        // 사용할 수 있으므로 이를 막기위해 포커스해제
+        // 즉, blur() 메서드로 처리함
+        this.blur();
+        // 초점이 들어가게 하는 메서드는 -> focus()
+        // 초점이 빠지게 하는 메서드는 -> blur()
+
+        // 4.토끼 자동호출
         goR1();
+
     }//else if
     else if(btxt ==='처음으로'){
         // 페이지 리로드하기
@@ -149,5 +157,65 @@ function whoWinner(){
         clearInterval(autoI);
         //(2) 거북야 멈춰라 (거북멈춤상태값 true)
         t1Stop = true;
+        
+        // 승자변수(메시지때문에씀: 토끼/거북/비김)
+        let winner;
+        //(3) 승자판별하기
+        if(r1pos>t1pos)winner = '토끼';
+        else if(r1pos< t1pos)winner = '거북';
+        else winner = '비김';
+
+        //(4) 랜덤수 만들기
+        // Math.floor(Math.random()*배열개수)
+        // 배열개수는 length
+        // 0부터 배열끝번호 사이수가 랜덤으로 생성됨
+        let rdmNum= Math.floor(Math.random()* msgTxt[winner].length);
+        console.log(rdmNum);
+        
+        //(5) 메시지 넣기
+        // 메시지 할당하기(랜덤수로 불러오기)
+        msg.innerText =msgTxt[winner][rdmNum];
+        // 메시지 박스보이기
+        msg.style.display = 'block';
+        // 커버보다 위
+        msg.style.zIndex = '100';
+
+        // (6) 전체 반투명 커버 암전주기
+        myFn.qs('.cover').style.cssText = `
+            position:fixed;
+            top:0;
+            left:0;
+            width:100vw;
+            height:100vh;
+            background-color:#000;
+            opacity:0.5;
+            z-index:99;
+        `;
+        // (7) 버튼박스위로 올리기
+        myFn.qs('#btns').style.zIndex =200;
     }  /////////if///////
+    
+    
 }////// whoWinner 함수 ////////////////
+
+/******************************************* 
+    [ 내가 원하는 랜덤수 만들기 ]
+    1. Math.random() 
+    -> 0~1사이 소수점 16자리 랜덤수 생성됨
+
+    2. 내가 원하는 1~몇까지의 랜덤수 만들기
+    (1) Math.random() * 원하는 최대수
+    -> 0~원하는수보다 1작은수까지 랜덤수발생
+    (2) 올림처리하여 1~원하는 수 를 만들어준다.
+    -> Math.ceil(Math.random() * 원하는 최대수)
+    -> 만약 0부터 1작은 최대수를 만들고 싶으면
+    내림처리하면된다. Math.floor()
+    (3) 중간범위의 랜덤수를 만들고자 할때는 1부터 최대수를 구하고
+    특정 시작수를 더해주면된다.
+    예) 4~12 랜덤수는 Math.ceil(Math.random() *8)+3
+*******************************************/
+
+// console.log('Math.random():',Math.random());
+// console.log('Math.random()*8:',Math.random()*8);
+// console.log('Math.ceil(Math.random()*8):',Math.ceil(Math.random()*8));
+// console.log('4~12 랜덤수:',Math.ceil(Math.random()*8)+3);
