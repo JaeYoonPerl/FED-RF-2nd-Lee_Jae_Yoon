@@ -25,7 +25,7 @@ import * as txtData from "./text_data.js";
 // import makeMessage from "./msg_format.js";
 import makeMsg from "./msg_format.js";
 
-console.log(makeMsg);
+console.log(txtData.myObj.name,txtData.myFunc('개발자'));
 
 /*************************************************** 
     
