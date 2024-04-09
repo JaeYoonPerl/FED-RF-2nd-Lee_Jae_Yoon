@@ -49,8 +49,14 @@ const delNum = mFn.qs('#delnum');
 // 3. 초기화 작업 : 처음배열 출력 / 콤보박스 바인딩
 
 // 3-1. 처음 배열 출력 ///////////////////////////////
-showit.innerText = fruit.join('♥');
-// 배열.join(구분자) : 배열값 사이에 구분자를 넣은 문자열값 변환
+// fruit 배열 변경시 다시 출력해야하므로 함수로 만들기
+const showArray =()=>{
+    showit.innerText = fruit.join('♥');
+    // 배열.join(구분자) : 배열값 사이에 구분자를 넣은 문자열값 변환
+}; //showArray 함수
+
+// 처음배열출력함수 최초호출은 아랫쪽에서
+showArray();
 
 // 3-2. 전체과일 콤보박스 바인딩 ///////////////////////
 // 대상: #sel -> sel변수
@@ -74,6 +80,11 @@ console.log('변환후 키배열:',arrFruits);
 // ->>> 새로운 배열은 새로운 변수에 할당한다.
 // ->>> map에 사용한 원본배열은 보존된다.
 let newArr = arrFruits.map(v=>`<option>${v}</option>`);
+
+// let newArr = arrFruits.map(v=>`{return <option>${v}</option>`});
+// -> 화살표 함수에서 중괄호를 사용하면 return할 경우 return 키워드를 
+// 써줘야함 따라서 중괄호생략시 리턴키워드 자동생갹 문법을 사용하면 간단히 표현할 수 있다.
+
 
 console.log('map변환후 배열값:',newArr);
 
@@ -126,5 +137,39 @@ function showFruit(){
         hcode += `</ul>`;
         //출력박스에 태그넣기
         cont.innerHTML = hcode;
+
     }// if
+    // (2) '뒷배열추가요~!'버튼 : push()
+    else if(btxt === '뒷배열추가요~!'){
+        // 대상: fruit 배열
+        // 읽어올곳 : #sel 박스 -> 값은  value
+        fruit.push(sel.value);
+    }// else if////
+
+    // (3) '앞배열추가요~!'버튼 : unshift()
+    else if(btxt === '앞배열추가요~!'){
+        // 대상: fruit 배열
+        // 읽어올곳 : #sel 박스 -> 값은  value
+        fruit.unshift(sel.value);    
+    }// else if////
+
+    // (4) 뒷배열삭제요~! 버튼 :pop()
+    else if(btxt === '뒷배열삭제요~!'){
+        // 대상: fruit 배열
+        fruit.pop();
+    } // else if////
+    
+    // (5) 앞배열삭제요~! 버튼 :shift()
+    else if(btxt === '앞배열삭제요~!'){
+        // 대상: fruit 배열
+        fruit.shift();
+    } // else if////
+
+    // 공통 실행 코드구역 ///
+    // 배열출력함수 호출
+    showArray();
+
+    // fruit 배열확인
+    console.log('fruit배열:',fruit);
+
 } /////showFruit 함수 ////
