@@ -102,10 +102,15 @@ sel.innerHTML = newArr.join('');
 // 대상: #num -> aNum변수 
 // 데이터: fruit 배열
 // 갱신시 계속 재바인딩 되어야함!(함수화 필요)
-aNum.innerHTML = 
-fruit.map((v,i)=>`
- <option value="${i}">${v}</option>
-`).join('');
+const bindCombo = ()=>{
+    aNum.innerHTML = 
+    fruit.map((v,i)=>`
+     <option value="${i}">${v}</option>
+    `).join('');
+};// bindCombo함수 /////
+
+// 콤보박스 데이터 바인딩 함수 최초호출
+bindCombo();
 
 // 4. 이벤트 설정하기
 mbtn.forEach(ele=>{
@@ -165,9 +170,39 @@ function showFruit(){
         fruit.shift();
     } // else if////
 
+    // (6) 중간배열삭제 버튼 :splice()
+    // ((삭제시)) 
+    // splice(순번) -> 해당 순번부터 뒤를 모두 삭제
+    // splice(순번,개수) -> 해당 순번부터 개수만큼 삭제
+    else if(btxt === '중간배열삭제'){
+        // 지울 순번 읽어오기(대상: #anum->aNum변수)
+        let delSeq = aNum.value;
+        // 지울 개수 읽어오기 (대상: #delNum => delNum변수)
+        let delCnt =delNum.value;
+        
+        console.log('삭제할 시작순번',delSeq,'\n지울개수:',delCnt);
+        
+        // 입력한 지울 개수가 숫자가 아니면 1로 넣기
+        // isNaN(변수) -> 숫자가 아니면 true , 맞으면 false
+        if(isNaN(delCnt)) {
+            // 변수값 1로 변경
+            delCnt=1;
+            // 입력창에도 1로 넣기
+            delNum.value=1;
+        } // if
+
+        // 대상: fruit 배열
+        fruit.splice(delSeq,delCnt);
+        // splice(지울순번, 지울개수)
+        
+    } // else if////
+
     // 공통 실행 코드구역 ///
     // 배열출력함수 호출
     showArray();
+
+    // 콤보박스 바인딩 함수 호출
+    bindCombo();
 
     // fruit 배열확인
     console.log('fruit배열:',fruit);
