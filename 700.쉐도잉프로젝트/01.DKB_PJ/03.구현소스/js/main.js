@@ -14,8 +14,16 @@ import slideFn from "./slide.js";
 // 데이터 셋팅 불러오기///
 import * as dkbData from "../data/dkb_data.js";
 // import { previewData } from '../data/dkb_data.js';
+
+// GNB메뉴 데이터 불러오기
+import gnbData from "../data/gnb_data.js";
+console.log(gnbData);
+
+
+
 ////////////////////////////////////////////////////////////////
 /////////구현 코드 파트///////////////////////
+
 
 // 1. 부드러운 스크롤 호출
 startSS();
