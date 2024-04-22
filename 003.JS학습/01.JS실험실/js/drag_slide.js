@@ -153,8 +153,8 @@ function slideFn(selEl,slider) {
     setTimeout(() => {
       // 3.맨앞li 맨뒤로 이동
       slide.appendChild(slide.querySelectorAll("li")[0]);
-      // 4.slide left값 -220%
-      slide.style.left = "-220%";
+      // 4.slide left값 -220% => 최종 left값은 px로
+      slide.style.left = selEl.offsetWidth*-2.2+"px";
       // 5.트랜지션 없애기
       slide.style.transition = "none";
     }, TIME_SLIDE);
@@ -191,7 +191,7 @@ function slideFn(selEl,slider) {
 
       setTimeout(() => {
         // 5. left값 -220%으로 들어오기
-        slide.style.left = "-220%";
+        slide.style.left = selEl.offsetWidth*-2.2+"px";
 
         // 6. 트랜지션주기
         slide.style.transition = TIME_SLIDE + "ms ease-in-out";
