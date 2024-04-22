@@ -431,9 +431,14 @@ function slideFn(selEl,slider) {
       console.log('제자리');
       slide.style.left="-220%";
       slide.style.transition=".3s ease-in-out";
-    }
+    }//else
+    
+    // 드래그 시 더해지는 마지막 위치값 lastX를 
+    // -220%의 left px값으로 초기화해준다.(숫자만)
+    lastX = selEl.offsetWidth*-2.2;
+    // -> 이것을 해야 오작동이 없다.
 
-    // console.log("마우스 업!", dragSts);
+    console.log("마우스 업!", lastX);
   }); ///////// mouseup //////////
 
   // (3) 마우스 무브 이벤트 함수연결하기
@@ -447,7 +452,9 @@ function slideFn(selEl,slider) {
     // 과도한 드래그로 갑자가 아웃되면 lastX,lastY값이
     // 셋팅되지 못한다! 이것을 기존 요소의 위치값으로 보정함!
     // 단, style위치값 코드는 'px'단위가 있으므로 parseInt처리!
-    lastX = parseInt(dtg.style.left);
+    // lastX = parseInt(dtg.style.left);
+    // -> 드래그 배너에서는 불필요(있으면 오작동)
+
 
     // console.log("마우스나감!", dragSts);
   }); ///////// mouseleave //////////
