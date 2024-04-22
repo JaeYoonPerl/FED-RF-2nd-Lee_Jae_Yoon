@@ -248,7 +248,7 @@ function slideFn(selEl) {
     } ///////// slideAuto 함수 //////////////
 
     // 인터발함수 최초호출!
-    //    slideAuto();
+    slideAuto();
 
     // 버튼을 클릭할 경우를 구분하여 자동넘김을 멈춰준다!
     function clearAuto() {
@@ -326,13 +326,11 @@ function slideFn(selEl) {
 
     // (3) 드래그 상태시 처리함수
     const dMove = (e) => {
-
-      
         // e - 이벤트 객체 전달변수
         // 드래그 상태는 dragSts값이 true인 경우에만 허용!
         if (dragSts) {
             // 0. 자동넘김 멈춤함수 호출하기
-        clearAuto();
+            clearAuto();
             // // console.log('드래그중~!');
 
             // 1. 드래그 상태에서 움질일대 포인터 위치값
@@ -422,7 +420,7 @@ function slideFn(selEl) {
             // 슬라이드 이동함수 호출시 드래그시 이동된값이
             // 계산된 -330%값을 보내준다!
             let resVal = selEl.offsetWidth * -3.3 + resultX;
-            console.log('모바일 resultX',resultX)
+            console.log("모바일 resultX", resultX);
             leftSlide(resVal + "px");
         } /// else if ///
         else {
@@ -449,8 +447,8 @@ function slideFn(selEl) {
     // 4. 드래그 이벤트 설정하기 //////////
     // (1) 마우스 다운 이벤트 함수연결하기
     mFn.addEvt(dtg, "mousedown", (e) => {
-      // 0. 자동넘김 멈춤함수 호출하기
-      clearAuto();
+        // 0. 자동넘김 멈춤함수 호출하기
+        clearAuto();
         // 드래그 상태값 true로 변경!
         dTrue();
         // 첫번째 위치포인트 셋팅!
@@ -469,8 +467,8 @@ function slideFn(selEl) {
 
     // (2) 마우스 업 이벤트 함수연결하기
     mFn.addEvt(dtg, "mouseup", (e) => {
-      // 0. 자동넘김 멈춤함수 호출하기
-      clearAuto();
+        // 0. 자동넘김 멈춤함수 호출하기
+        clearAuto();
 
         // 드래그 상태값 false로 변경!
         dFalse();
@@ -507,8 +505,8 @@ function slideFn(selEl) {
 
     // (1) 터치스타트 이벤트 함수연결하기
     mFn.addEvt(dtg, "touchstart", (e) => {
-      // 0. 자동넘김 멈춤함수 호출하기
-      clearAuto();
+        // 0. 자동넘김 멈춤함수 호출하기
+        clearAuto();
         // 드래그 상태값 true로 변경!
         dTrue();
         // 첫번째 위치포인트 셋팅!
@@ -524,8 +522,8 @@ function slideFn(selEl) {
 
     // (2) 터치엔드 이벤트 함수연결하기
     mFn.addEvt(dtg, "touchend", () => {
-      // 0. 자동넘김 멈춤함수 호출하기
-      clearAuto();
+        // 0. 자동넘김 멈춤함수 호출하기
+        clearAuto();
         // 드래그 상태값 false로 변경!
         dFalse();
         // 마지막 위치포인트 셋팅!
