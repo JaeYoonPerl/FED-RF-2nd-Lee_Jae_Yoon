@@ -65,8 +65,8 @@ function slideFn(selEl) {
   for (let i = 0; i < sldCnt; i++) {
     indic.innerHTML += `
             <li ${i == 0 ? 'class="on"' : ""}>
-                <img src="images/dot1.png" alt="흰색">
-                <img src="images/dot2.png" alt="회색">
+                <img src="images/img_nav06/dot1.png" alt="흰색">
+                <img src="images/img_nav06/dot2.png" alt="회색">
             </li>
         `;
   } /////// for문 ////////////
@@ -274,7 +274,7 @@ function slideFn(selEl) {
   } ///////// slideAuto 함수 //////////////
 
   // 인터발함수 최초호출!
-  slideAuto();
+  // slideAuto();
 
    /***************************************** 
     함수명: clearAuto
@@ -516,14 +516,14 @@ function slideFn(selEl) {
   }); ///////// mousedown //////////
 
   // (2) 마우스 업 이벤트 함수연결하기
-  mFn.addEvt(dtg, "mouseup", (e) => {
+  mFn.addEvt(dtg, "mouseup", () => {
     // 0. 자동넘김 멈춤함수 호출하기
     clearAuto();
 
     // 드래그 상태값 false로 변경!
     dFalse();
     // 마지막 위치포인트 셋팅!
-    lastPoint(e);
+    lastPoint();
 
     // 마우스 업시 편손!
     dtg.style.cursor = "grab";
@@ -595,7 +595,16 @@ function slideFn(selEl) {
   mFn.addEvt(dtg, "touchmove", dMove);
   //////////// touchmove /////////////
 
-  // 브라우저 크기 리사이즈시 동적 변경값 업데이트함수
+   // (4) 버튼,블릿에 오버시 자동처리호출셋팅 ///
+   mFn.qsaEl(selEl,'.contorls').forEach((ele) =>
+   mFn.addEvt(ele,"mouseenter", 
+   () => {
+     moveDragSlide();
+     clearAuto();
+   }) /////// 
+ );/////// forEach ////////
+
+  // (5) 브라우저 크기 리사이즈시 동적 변경값 업데이트함수
   mFn.addEvt(window, "resize", () => {
     // 1. 기준위치값 left 업데이트
     originalValue = selEl.offsetWidth * -2.2;

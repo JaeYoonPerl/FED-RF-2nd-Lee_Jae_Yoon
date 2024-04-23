@@ -511,19 +511,23 @@ function slideFn(selEl) {
 
     // z-index 전역변수(zNum) 숫자를 1씩 높이기
     // dtg.style.zIndex = ++zNum;
-
+    
+    
     // console.log("마우스 다운!", dragSts);
   }); ///////// mousedown //////////
+  
+
 
   // (2) 마우스 업 이벤트 함수연결하기
-  mFn.addEvt(dtg, "mouseup", (e) => {
+  mFn.addEvt(dtg, "mouseup", () => {
     // 0. 자동넘김 멈춤함수 호출하기
     clearAuto();
+    
 
     // 드래그 상태값 false로 변경!
     dFalse();
     // 마지막 위치포인트 셋팅!
-    lastPoint(e);
+    lastPoint();
 
     // 마우스 업시 편손!
     dtg.style.cursor = "grab";
@@ -547,6 +551,9 @@ function slideFn(selEl) {
     // 단, style위치값 코드는 'px'단위가 있으므로 parseInt처리!
     // lastX = parseInt(dtg.style.left);
     // -> 드래그 배너에서는 불필요!(있어면 오작동!)
+
+    
+
 
     // console.log("마우스나감!", dragSts);
   }); ///////// mouseleave //////////
@@ -595,7 +602,16 @@ function slideFn(selEl) {
   mFn.addEvt(dtg, "touchmove", dMove);
   //////////// touchmove /////////////
 
-  // 브라우저 크기 리사이즈시 동적 변경값 업데이트함수
+  // (4) 버튼,블릿에 오버시 자동처리호출셋팅 ///
+  mFn.qsaEl(selEl,'.contorls').forEach((ele) =>
+    mFn.addEvt(ele,"mouseenter", 
+    () => {
+      moveDragSlide();
+      clearAuto();
+    }) /////// 
+  );/////// forEach /////////
+
+  // (5) 브라우저 크기 리사이즈시 동적 변경값 업데이트함수
   mFn.addEvt(window, "resize", () => {
     // 1. 기준위치값 left 업데이트
     originalValue = selEl.offsetWidth * -2.2;
