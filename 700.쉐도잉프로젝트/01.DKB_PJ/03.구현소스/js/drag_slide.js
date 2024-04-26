@@ -130,6 +130,8 @@ function slideFn(selEl) {
 
     // 5. 중앙 li에 클래스 on넣기
     // slideSeq값은 오른쪽버튼2,왼쪽버튼3
+    
+  
     let slideSeq = isRight ? 3 : 2;
     addOnSlide(slideSeq);
   } ////////// goSlide 함수 /////////
@@ -369,10 +371,17 @@ function slideFn(selEl) {
   // (2) 드래그 상태 false 로 변경하는 함수
   const dFalse = () => (dragSts = false);
 
+
   // (3) 드래그 상태시 처리함수
   const dMove = (e) => {
     // e - 이벤트 객체 전달변수
     // 드래그 상태는 dragSts값이 true인 경우에만 허용!
+
+      // 이동버튼+블릿 이벤트 없앰설정하기
+    // 상위 selEl에 클래스 .no 주면된다!
+    if (dragSts) selEl.classList.add('no');
+    else selEl.classList.remove('no');
+
     if (dragSts) {
       // 0. 자동넘김 멈춤함수 호출하기
       // clearAuto();
@@ -550,7 +559,8 @@ function slideFn(selEl) {
     // 큐에서 순서대로 스택으로 넘어가 처리된다!
     setTimeout(dFalse, 0);
 
-    // dFalse();
+    // 마우스가 벗어나면 이동판별함수 호출
+    if(dragSts) moveDragSlide();
 
     // 과도한 드래그로 갑자가 아웃되면 lastX,lastY값이
     // 셋팅되지 못한다! 이것을 기존 요소의 위치값으로 보정함!
@@ -604,18 +614,7 @@ function slideFn(selEl) {
   mFn.addEvt(dtg, "touchmove", dMove);
   //////////// touchmove /////////////
 
-  // (4) 버튼,블릿에 오버시 자동처리호출셋팅 ///
-  // (조건:드래그상태 변수인 dragSts값이 true일때 )
-  mFn.qsaEl(selEl, ".controls").forEach(
-    (ele) =>
-      mFn.addEvt(ele, "mouseenter", () => {
-        console.log('dragSts:',dragSts);
-        if(dragSts){ // 드래그 중일때 처리
-          moveDragSlide();
-          clearAuto();
-        } /// if /////
-      }) ///////mouseenter /////
-  ); /////// forEach /////////
+  // (4) 컨트롤 마우스 엔터처리 삭제함
 
   // (5) 브라우저 크기 리사이즈시 동적 변경값 업데이트함수
   mFn.addEvt(window, "resize", () => {
