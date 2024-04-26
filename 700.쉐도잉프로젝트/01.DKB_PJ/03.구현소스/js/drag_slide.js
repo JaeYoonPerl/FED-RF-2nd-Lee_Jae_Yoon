@@ -502,6 +502,30 @@ function slideFn(selEl) {
     // chgIndic(slideSeq === 3 ? true : false);
   }; ////////// moveDragSlide 함수 /////////////
 
+  // (7) 슬라이드 확정위치 이동함수/////
+  const fixPosition = () => {
+    // 중간 위치일때 배너 위치 수정하기
+    // (1) 현재 리스트 li 수집하기
+    let currList = mFn.qsaEl(dtg,"li");
+    // (2) 리스트 한개당 크기(li가로크기)
+    let oneSize = currList[0].offsetWidth;
+
+    // (3) 한개 li크기로 현재 left 위치크기를 나누어서 
+    // 소수점 아래결과는 반올림 해준다. -> 특정위치로 이동함
+    let divideNum = parseInt(dtg.style.left) / oneSize;
+    console.log('나눈수:',divideNum); 
+    divideNum = Math.round(divideNum);
+    console.log('나눈수 반올림:',divideNum); 
+    divideNum=Math.abs(divideNum);
+    console.log('나눈수 반올림 후 절대값',divideNum); 
+
+    // 특정위치로 이동하기 : 한개당 크기 * 개수
+    dtg.style.left = -(oneSize*divideNum)+"px";
+    // -> 위치값은 마이너스임
+
+  }; // fixed position함수
+    
+
   //////////////////////////////////////
   // 4. 드래그 이벤트 설정하기 //////////
 
@@ -536,6 +560,11 @@ function slideFn(selEl) {
     // 드래그 슬라이드 이동함수 호출!
     // moveDragSlide();
 
+    // 슬라이드 위치 확정 이동 함수 호출
+    fixPosition();
+
+    
+
     // // console.log("마우스 업!", lastX);
   }); ///////// mouseup //////////
 
@@ -550,6 +579,11 @@ function slideFn(selEl) {
     
     // 마우스가 벗어나면 이동판별함수 호출!
     // if(dragSts) moveDragSlide();
+
+    
+    // 슬라이드 위치 확정 이동 함수 호출
+    fixPosition();
+
   }); ///////// mouseleave //////////
 
   //////////// 모바일 이벤트 처리 구역 //////////
