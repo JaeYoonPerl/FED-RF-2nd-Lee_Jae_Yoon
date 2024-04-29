@@ -309,15 +309,16 @@ body * {
     color: #fff;
     border: none;
     background-color: rgba(0, 0, 0, 0.6); 
+    cursor: pointer;
 }
 /* 왼쪽버튼 */
 .btn-box button:first-child{
     left: -35px;
     /* 처음에 안보임 */
-    display: none;
+    /* display: none; */
 }
 /* 오른쪽버튼 */
 .btn-box button:last-child{
     right: -35px;
-    display: none;
+    /* display: none; */
 }
