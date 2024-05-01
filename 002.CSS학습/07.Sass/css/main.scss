@@ -61,6 +61,18 @@
         2) 믹스인 호출방법 : 믹스인을 포함하라(@include)
         -> @include 믹스인이름;
         -> @include 믹스인이름(전달값);
+    
+    (6) 네스팅 이어붙이기 기법(&)
+    - 가상요소, 가상클래스, 특정클래스를
+    현재 선택요소에 셋팅하는 방법임
+    - &(앰퍼센드)는 현재 선택요소 자신을 가리킴
+
+    (7) 반복코드 확장: @extend (extend는 연장하다,확장하다)
+        1) 사용이유 : 반복되는 같은 셋팅을 클래스를 쉽게 도입한다,
+        2) 사용방법 : 선택자 코드 안에 (@extned 클래스명) 형식
+        3) 공통코드 외에 다른 셋팅속성은 하단에 추가로 구현한다.
+        4) 장점 : 공통코드 적용을 위해 각 요소에 클래스를 일일히 주지 않아도
+        공통 코드를 적용할 수 있다.
 **************************************************************/
 
 // 외부 변수 셋팅 sass불러오기
@@ -81,17 +93,28 @@
 // [3]전달값을 보내지 않아도 에러나지 않고록 기본값지정하기
 @mixin title-text($selColor:red){ // $selColor 글자색 전달변수.
     color: $selColor;
-
+    // 하단 마진
+    margin-bottom: $fontSize1;
+    // 폰트설정모음
     font: {
         size: 40px;
         family: "times New Roman";
     }
-
+    // 텍스트 설정 모음
     text: {
         align: center;
         decoration: underline;
         underline-offset: 10px;
         shadow: 5px 5px 4px #00000070;
+    }
+}
+
+// (2) 박스테두리 믹스인
+@mixin box-border($bdColor:blue){
+    border: {
+        color: $bdColor;
+        style: dashed;
+        width: 7px;
     }
 }
 
@@ -133,17 +156,99 @@
 
         padding: 20px;
     }
+    // 서브 타이틀 박스
+    h2{
+        @extend .box-basic;
+        font-size: $fontSize3;
+    }
 }
 
 // 메인영역
 .main-area{
+    // 내부 박스 section
+    section{
+        // 박스 테두리 믹스인 호출
+        @include box-border(pink);
+        margin-bottom: 20px;
+        padding: 20px;
+    }
     // 메인 영역 타이틀 믹스인 호출
     h3{
         @include title-text(darkblue);
     }
 }
+    // 리스트, 문단 디자인
+    ul,ol,p{
+        line-height: 2;
+        font-size: 24px;
+        
+        // 하위 li요소
+        li{
+            text: {
+                decoration: underline;
+                underline-offset: 10px;
+                decoration-thickness: 5px;
+                decoration-color: $mainColor2;
+                align: center;
+            }
+            background-color: #ff0;
+            // 네스팅 이어붙이기 기법(&)
+            // 첫번째 li강조하기
+            &:first-child{
+                color: orchid;
+                font-weight: bold;
+                font-size: $fontSize3;
+                text-shadow: 
+                1px 0  #000,
+                -1px 0  #000,
+                0 1px   #000,
+                0 -1px  #000;
+            }
+            // 가상요소 블릿넣기
+            &::before{
+                content: '★';
+            }
+        }
+        
+    }
+// 버튼 기본디자인 클래스
+.button-basic{
+    display: inline-block;
+    border: 1px solid #222;
+    border-radius: 20px;
+    padding: 15px 30px;
+   font-size: 20px;
+   cursor:pointer;
+   margin-left: 20px;
+}
+// 일반 박스 기본
+.box-basic{
+    text-align: center;
+    padding: 20px 0;
+}
+// 위의 기본 디자인 클래스를 특정 클래스에 그대로 가져오고 싶을때
+// @extend 클래스명
 
+// 제출하기 버튼에 기본버튼 디자인 입히기
+.button-report{
+    // 기본 버튼 클래스 가져오기
+    @extend .button-basic;
+    // 다른 디자인 요소는 추가로 구현
+    background-color: orange;
+    color: #fff;
+}
+
+// 기본 박스 디자인을 입혀서 버튼 박스를 셋팅
+.button-box{
+    // 기본박스 디자인 가져오기
+    @extend .box-basic;
+    // 추가디자인은 아래에 
+    background-image: 
+    linear-gradient(to bottom, lightgreen,transparent);
+}
 // 하단 타이틀
 .bottom-title{
+    // 기본박스 디자인 적용하기
+    @extend .box-basic;
     @include title-text();
 }
