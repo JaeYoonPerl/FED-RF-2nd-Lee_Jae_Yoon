@@ -60,7 +60,7 @@
 
     (6) 네스팅 이어붙이기 기법(&)
     - 가상요소, 가상클래스, 특정클래스를
-    현재 선택요소에 셋팅하는 방법임
+        현재 선택요소에 셋팅하는 방법임
     - &(앰퍼센드)는 현재 선택요소 자신을 가리킴
 
     (7) 반복코드 확장: @extend (extend는 연장하다,확장하다)
@@ -196,6 +196,17 @@ ul li::before, ol li::before, p li::before {
   font-size: 20px;
   cursor: pointer;
   margin-left: 20px;
+}
+.button-basic:hover, .button-report:hover {
+  background-color: hotpink;
+  text-decoration: overline;
+  text-decoration-style: wavy;
+}
+.button-basic.my, .my.button-report {
+  text-decoration: underline;
+  text-decoration-style: dotted;
+  text-underline-offset: 10px;
+  text-decoration-thickness: 5px;
 }
 
 .box-basic, .bottom-title, .button-box, .top-area h2 {

@@ -64,7 +64,7 @@
     
     (6) 네스팅 이어붙이기 기법(&)
     - 가상요소, 가상클래스, 특정클래스를
-    현재 선택요소에 셋팅하는 방법임
+        현재 선택요소에 셋팅하는 방법임
     - &(앰퍼센드)는 현재 선택요소 자신을 가리킴
 
     (7) 반복코드 확장: @extend (extend는 연장하다,확장하다)
@@ -220,6 +220,24 @@
    font-size: 20px;
    cursor:pointer;
    margin-left: 20px;
+   
+   // 마우스 오버시 셋팅하기
+   &:hover{
+    background-color: hotpink;
+    text: { 
+        decoration: overline;
+        decoration-style: wavy;
+    }
+   }
+    // 클래스가 "my"인 경우 디자인 변경
+    &.my {
+        text: {
+            decoration: underline;
+            decoration-style: dotted;
+            underline-offset: 10px;
+            decoration-thickness: 5px;
+        }
+    }    
 }
 // 일반 박스 기본
 .box-basic{
@@ -237,6 +255,8 @@
     background-color: orange;
     color: #fff;
 }
+
+
 
 // 기본 박스 디자인을 입혀서 버튼 박스를 셋팅
 .button-box{
