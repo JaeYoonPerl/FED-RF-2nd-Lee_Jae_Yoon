@@ -1,7 +1,6 @@
 @charset "utf-8";
 /* 자동스크롤 CSS - auto_scroll.css */
 
-
 /* 기본 초기화 */
 html,
 body,
@@ -13,25 +12,26 @@ h4 {
     padding: 0;
 }
 /* a요소 위치 이동시 부드러운 스크롤 애니설정 */
-html{
+html {
     scroll-behavior: smooth;
 }
 
-
 /* 자동스크롤 위해 스크롤바 없애기 */
-html,body{
+html,
+body {
     /* overflow: hidden; */
 }
 
 /* 리스트 초기화 */
-ul,ol{
+ul,
+ol {
     margin: 0;
     padding: 0;
     list-style: none;
 }
 
 /* a요소 초기화 */
-a{
+a {
     text-decoration: none;
     color: #fff;
     text-shadow: 0 0 2px #777;
@@ -51,7 +51,7 @@ a{
 }
 
 /* 배경공통 클래스 */
-.bg-com{
+.bg-com {
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
@@ -94,6 +94,9 @@ a{
 /* 메뉴 플렉스박스 */
 .gnb ul {
     display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px 0;
 }
 .gnb li {
     margin: 0 7px;
@@ -108,28 +111,27 @@ a{
 }
 
 /* 각 페이지 클래스 */
-.pg1{
+.pg1 {
     background-image: url(../images/auto_scroll/pic1.png);
 }
-.pg2{
+.pg2 {
     background-image: url(../images/auto_scroll/pic2.png);
 }
-.pg3{
+.pg3 {
     background-image: url(../images/auto_scroll/pic3.png);
 }
-.pg4{
+.pg4 {
     background-image: url(../images/auto_scroll/pic4.png);
 }
-.pg5{
+.pg5 {
     background-image: url(../images/auto_scroll/pic5.png);
 }
-.pg6{
+.pg6 {
     background-image: url(../images/auto_scroll/pic6.png);
 }
-.pg7{
+.pg7 {
     background-image: url(../images/auto_scroll/pic7.png);
 }
-
 
 /* 인디케이터 */
 .indic {
@@ -170,4 +172,24 @@ a{
 /* 설명글자숨기기 */
 .indic span {
     display: none;
+}
+
+/* 미디어 쿼리 */
+@media screen and (max-width: 700px) {
+    /* 상당영역 속박스 */
+    .header{
+        height: auto;
+    }
+    /* 1-1.로고 */
+    #logo {
+        margin: 0 auto;
+    }
+    /* 1-2. GNB 메뉴 */
+    .gnb {
+        position: static;
+    }
+    /* 메뉴 플렉스박스 */
+    .gnb ul {
+        translate: 0 -20px;
+    }
 }
