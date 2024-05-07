@@ -160,7 +160,10 @@ function bindCombo(){
 // 링크 이동함수
 function openWindow(){ 
     // 현재 나자신의 아이디는?
-    console.log(this.id);
+    // console.log(this.id);
+
+    // 0. 옵션값이 "init"일 경우 돌아가!
+    if(this.value == "init")return;
 
 
 
