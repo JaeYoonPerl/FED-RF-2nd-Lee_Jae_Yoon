@@ -250,12 +250,26 @@ $(".spart-menu a").click(e=>{
     .animate({scrollTop:pos+"px"},
     800, // 시간(1/1000초)
     "easeInOutElastic", //이징(http://easings.net)
-    // 이동후 부드러운 스크롤 위치값 업데이트 필수
+    // 콜백함수(애니후 호출되는 함수)
     ()=>{
+        // 이동후 부드러운 스크롤 위치값 업데이트 필수
         // 이것 안하면 위치이동후 스크롤시 튐!
-        setScrollPos(pos);
+        // 생성자 함수 하위 객체변수로 등록된 함수를 호출한다.
+        mySmooth.setScrollPos(pos);
     }
     );
 
 
 }); //// 도깨비 파트 메뉴 클릭 함수///
+
+
+$(".preview-box").css({
+    height: "200px",
+    overflow: "auto"
+  })
+.on("wheel",e=>{
+    e.stopPropagation();
+})
+
+// 부드러운 스크롤 개별 박스 정용
+const smallSmooth = new SmoothScroll(myFn.qs(".preview-box"),20,30);
