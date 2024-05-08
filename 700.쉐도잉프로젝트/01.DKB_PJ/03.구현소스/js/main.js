@@ -262,14 +262,14 @@ $(".spart-menu a").click(e=>{
 
 }); //// 도깨비 파트 메뉴 클릭 함수///
 
+// 개별 박스에 부드러운 스크롤 생성자 함수 적용하기 연습
+// $(".preview-box").css({
+//     height: "200px",
+//     overflow: "auto"
+//   })
+// .on("wheel",e=>{
+//     e.stopPropagation();
+// })
 
-$(".preview-box").css({
-    height: "200px",
-    overflow: "auto"
-  })
-.on("wheel",e=>{
-    e.stopPropagation();
-})
-
-// 부드러운 스크롤 개별 박스 정용
-const smallSmooth = new SmoothScroll(myFn.qs(".preview-box"),20,30);
+// // 부드러운 스크롤 개별 박스 정용
+// const smallSmooth = new SmoothScroll(myFn.qs(".preview-box"),20,30);
