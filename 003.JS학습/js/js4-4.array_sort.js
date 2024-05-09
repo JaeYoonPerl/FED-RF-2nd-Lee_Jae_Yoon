@@ -521,3 +521,26 @@ const list2 = [
 // 4-3. 코드 만들어 출력하는 함수 호출하기
 // updateCode(배열데이터,출력박스)
 updateCode(list2, showList4);
+
+// 4-5. 검색 이벤트 설정하기 ////////
+// 대상선정 : 
+// (1) 검색기준 선택박스 
+const searchCta4 = mFn.qs(".search-cta4");
+// (2) 검색버튼 
+const btnSearch = mFn.qs(".sbtn");
+// (3) 검색어 입력창
+const keyWord = mFn.qs("#stxt");
+console.log(searchCta4,btnSearch,keyWord);
+
+//4-5-2. 이벤트 설정하기
+mFn.addEvt(keyWord,"click",searchingFn);
+
+// 4-6.검색함수 만들기
+function searchingFn(){
+  // 1. 검색 기준값 읽어오기
+  let cta = searchCta4.value;
+  // 2. 검색어 읽어오기
+  let kword = keyWord.value;
+  console.log(cta,kword);
+
+} //// searchingFn 함수
