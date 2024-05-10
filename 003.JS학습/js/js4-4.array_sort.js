@@ -403,7 +403,13 @@ const updateCode = (arrData, exBox) => {
         </tr>
       </thead>
       <tbody>
-        ${arrData
+        ${arrData.length==0?
+          `<tr>
+          <td colspan="3">
+            검색하신 데이터가 없습니다.
+          </td>
+          </tr>`:
+          arrData
           .map(
             (v) => `
               <tr>
@@ -530,10 +536,20 @@ const searchCta4 = mFn.qs(".search-cta4");
 const btnSearch = mFn.qs(".sbtn");
 // (3) 검색어 입력창
 const keyWord = mFn.qs("#stxt");
-console.log(searchCta4,btnSearch,keyWord);
+// (4) 전체버튼
+const btnTotal = mFn.qs(".fbtn");
+// console.log(searchCta4,btnSearch,keyWord);
 
 //4-5-2. 이벤트 설정하기
+// 검색버튼
 mFn.addEvt(btnSearch,"click",searchingFn);
+// 전체버튼 클릭시 처음 리스트 보이기
+mFn.addEvt(btnTotal,"click",()=>{
+  // 처음리스트 다시 만들기
+  updateCode(list2,showList4);
+  // 검색어 지우기
+  keyWord.value = ""; 
+});
 
 // 4-6.검색함수 만들기
 function searchingFn(){
@@ -553,7 +569,7 @@ function searchingFn(){
   // 4. 검색기준을 검색어를 사용하여 검색하기
   // 검색대상 데이터 배열 : list2
   // 사용 배열메서드 : filter()
-  let result = list2.filter(v=>{
+  let result = list2.filter((v)=>{
     // v는 배열값
     // 만약에 찾는 문자가 전체문자열에 있으면 -1이 아님!
     // -> 숫자이면 에러남! 왜? indexOf()는 문자열전문
@@ -562,7 +578,7 @@ function searchingFn(){
     // 이 조건에 리턴값을 true로 하면 해당 데이터를 
     // 배열로 만들어서 순서대로 변수에 할당한다.
     // 여기서는 result변수가 결과 배열 변수가 된다.
-    // console.log(v["tit"].indexOf(kword));
+    // console.log(v[cta].indexOf(kword));
   });
   // 전체문자열.indexOf(문자열) -> 해당문자열이 전제문자열에서 
   // 몇번째에 있는지 그 순번을 리턴해 주는 메서드다!
