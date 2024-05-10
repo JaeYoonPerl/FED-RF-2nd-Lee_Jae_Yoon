@@ -459,6 +459,17 @@ function sortingFn(evt, cta, arrData, exBox) {
   // exBox - 출력 대상박스
   // console.log(evt,arrData,exBox);
 
+  // 전달된 배열값을 변수에 그냥 할당하면 얕은 복사가 되어서 
+  // 정렬시 원본의 정렬 변경을 막을 수 없다,.
+  // 따라서 깊은 복사를 하여 원본과 분리 시킨다(값복사를 한다.)
+  // 일반적인 값의 배열 깊은 복사는 
+  // 새변수 = [...원본배열변수] => 이렇게 하지만
+  // 값이 객체일 경우 이 방식은 효과가 없다.
+  // 효과있는 방법은?
+  // 새변수 = JSON.parse(Json.stringify(배열원본 변수))
+  const xxx = JSON.parse(JSON.stringify(arrData));
+  // xxx는 원본과는 분리된 같은 배열값의 새로운 배열이다.
+
   // 1. 선택값 읽어오기(오름차순:1,내림차순:2)
   let selVal = evt.target.value;
   console.log("선택값:",selVal);
@@ -469,19 +480,19 @@ function sortingFn(evt, cta, arrData, exBox) {
   // 2. 정렬분기하기 ////////////////
   // 2-1. 오름차순
   if(selVal == 1){
-    arrData.sort((a,b)=> 
+    xxx.sort((a,b)=> 
     a[cta] == b[cta] ? 0 : a[cta] > b[cta] ? 1 : -1);
     
   } /// if /////
   // 2-2. 내림차순
   else if(selVal == 2){
-    arrData.sort((a,b)=> 
+    xxx.sort((a,b)=> 
     a[cta] == b[cta] ? 0 : a[cta] > b[cta] ? -1 : 1);
 
   } /// else if /////
 
-  console.log("정렬결과:",arrData);
-  updateCode(arrData,exBox);
+  console.log("정렬결과:",xxx);
+  updateCode(xxx,exBox);
 
 } ////////////// sortingFn 함수 ////////////////
 
@@ -541,15 +552,23 @@ const btnTotal = mFn.qs(".fbtn");
 // console.log(searchCta4,btnSearch,keyWord);
 
 //4-5-2. 이벤트 설정하기
-// 검색버튼
+// (1) 검색버튼
 mFn.addEvt(btnSearch,"click",searchingFn);
-// 전체버튼 클릭시 처음 리스트 보이기
+// (2) 전체버튼 클릭시 처음 리스트 보이기
 mFn.addEvt(btnTotal,"click",()=>{
   // 처음리스트 다시 만들기
   updateCode(list2,showList4);
   // 검색어 지우기
   keyWord.value = ""; 
 });
+// (3) 입력창 키보드입력시 엔터키 구분하여 검색하기
+mFn.addEvt(keyWord, "keypress",(e)=>{
+  // 엔터키는 키코드가 13번임
+  if(e.keyCode==13){
+    searchingFn();
+  }/////if/////
+});
+
 
 // 4-6.검색함수 만들기
 function searchingFn(){
@@ -585,8 +604,32 @@ function searchingFn(){
   // 만약 없으면 -1값을 리턴한다. 
 
   // 결과찍기
-  console.log(result);
+  console.log("검색결과:",result);
+  console.log("원본데이터:",list2);
 
   // 5. 결과 화면에 보여주기 : updateCode함수호출
   updateCode(result,showList4);
 } //// searchingFn 함수
+
+
+
+// 4-7.. 정렬변경 이벤트 발생시 실제 정렬 변경하기 ////
+// - change 이벤트 대상 선택박스들
+// (1) 정렬종류 대상: .sel4
+const sel4 = mFn.qs(".sel4");
+// (2) 정렬기준 대상: .cta4
+const cta4 = mFn.qs(".cta4");
+
+// (3) 정렬종류 대상 선택 변경시
+// -> 실제 정렬을 적용하여 리스트를 갱신한다!
+// -> 정렬 적용시 정렬기준 대상 선택항목을 가져가야함!
+mFn.addEvt(sel4, "change", 
+(e) => sortingFn(e, cta4.value, list2, showList4));
+
+// (4) 정렬기준 대상 선택 변경시
+// -> 정렬종류 대상 초기화하기("정렬선택"으로 변경!)
+mFn.addEvt(cta4, "change", () => {
+  // 정렬종류 첫번째 값은 value가 "0"이므로
+  // 이것을 value 에 할당하면 선택박스값이 첫번째로 변경된다!
+  sel4.value = "0";
+}); //////////// change 이벤트 함수 //////////
