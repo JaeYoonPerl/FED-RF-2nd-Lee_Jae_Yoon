@@ -394,7 +394,7 @@ function slideFn(selEl) {
       // 전체 슬라이드 width = li한개당 width * 슬라이드개수
       let limitSize = 
       selEl.offsetWidth - (oneSize * listLength);
-      console.log('마지막한계Left:',limitSize);
+      // console.log('마지막한계Left:',limitSize);
 
       // 4-1. 맨앞에서 튕기기
       if(parseInt(dtg.style.left)>0){
@@ -519,11 +519,11 @@ function slideFn(selEl) {
     // (3) 한개 li크기로 현재 left 위치크기를 나누어서 
     // 소수점 아래결과는 반올림 해준다. -> 특정위치로 이동함
     let divideNum = parseInt(dtg.style.left) / oneSize;
-    console.log('나눈수:',divideNum); 
+    // console.log('나눈수:',divideNum); 
     divideNum = Math.round(divideNum);
-    console.log('나눈수 반올림:',divideNum); 
+    // console.log('나눈수 반올림:',divideNum); 
     divideNum=Math.abs(divideNum);
-    console.log('나눈수 반올림 후 절대값',divideNum); 
+    // console.log('나눈수 반올림 후 절대값',divideNum); 
 
     // 특정위치로 이동하기 : 한개당 크기 * 개수
     dtg.style.left = -(oneSize*divideNum)+"px";
