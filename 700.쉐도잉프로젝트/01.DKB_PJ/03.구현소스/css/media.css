@@ -13,9 +13,9 @@
   /* x축 스크롤없앰 -> html,body에 줄때
   하위 박스중 sticky박스가 작동하지 않음!
   따라서 body>* 박스에 이것을 준다! */
-  body>* {
+  /* body>* {
     overflow-x: hidden;
-  }
+  } */
   /* 스티키 박스 메뉴 아래쪽에 걸리게 top값 조정 */
   #dokebi-menu{
     top: 58px;
@@ -31,7 +31,7 @@
     height: auto;
   }
   /* 상단로고 조정 */
-  .header__logo img {
+  .mlogo img {
     width: auto;
     height: 38px;
     margin: 0;
@@ -44,11 +44,11 @@
   }
   /* 햄버거 버튼 상위.top에 클래스on 
     줄경우 x버튼으로 변경 */
-  .header.on .ham {
+  .top-area.on .ham {
     z-index: 9999;
     transform: scale(1.5);
   }
-  .header.on .ham::before {
+  .top-area.on .ham::before {
     content: "×";
   }
   /* 상단영역고정으로 가려지는 공간밀기 */
@@ -79,7 +79,7 @@
     transition: left 0.4s ease-in-out;
   }
   /* 메뉴박스 등장 */
-  .header.on .gnb {
+  .top-area.on .gnb {
     left: 0;
   }
 
@@ -107,6 +107,12 @@
 
   .smbx h2 {
     display: none;
+  }
+
+  #spart-menu{
+    /* 상단메뉴가 고정되므로 그 아래에 걸려야함! */
+    top: 56px;
+    /* overflow-x: hidden; */
   }
 
   /* 현장포토 */

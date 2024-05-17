@@ -32,6 +32,8 @@ const comData ={
             <!-- GNB메뉴 -->
                 <nav class="gnb"></nav>
             </div>
+            <!-- 모바일 햄버거 버튼 -->
+            <button class="ham"></button>
         </div>
     </header>
     `,
