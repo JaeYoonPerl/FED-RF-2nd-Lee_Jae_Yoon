@@ -4,7 +4,7 @@ import guData from "./data/gu_data.js";
 console.log(guData);
 
 // 국가 옵션배열
-const country =["캄보디아","베트남","중국","러시아","일본"];
+const country = ["캄보디아","베트남","중국","러시아","일본"];
 const countryNum = country.length;
 
 // 랜덤수 생성함수
