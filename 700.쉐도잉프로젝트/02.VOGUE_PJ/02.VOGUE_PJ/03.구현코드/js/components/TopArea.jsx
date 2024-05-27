@@ -1,4 +1,5 @@
 // 상단영역 컴포넌트 ///////
+
 export default function TopArea({ changeMenu }) {
     // changeMenu - 부모의 setMenu 상태관리 메서드
 
@@ -10,7 +11,7 @@ export default function TopArea({ changeMenu }) {
         console.log(v);
         
         // 전달값 변경하기 : 소문자 특수문자 변경
-        v= v.toLowerCase().replace("&","-");
+        v= v.toLowerCase();
 
         // 부모 메뉴 변경 상태 메서드로 메뉴변경
         changeMenu(v);
@@ -43,7 +44,7 @@ export default function TopArea({ changeMenu }) {
                         <a href="#" className="fi fi-user-secret" title="회원가입">
                             <span className="ir">회원가입</span>
                         </a>
-                        <a href="#" className="fi fi-camera" title="갤러리">
+                        <a href="#" className="fi fi-camera" title="갤러리" onClick={()=>chgMenuFn("gallery")}>
                             <span className="ir">갤러리</span>
                         </a>
                         <a href="#" className="fi cas" title="카카오스토리">
