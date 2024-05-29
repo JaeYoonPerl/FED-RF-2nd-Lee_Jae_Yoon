@@ -32,8 +32,9 @@ function App() {
         <span>
         <img src="https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_square.jpg" className="App-logo" alt="logo" />
         </span>
+
         <p>
-          Edit <code>src/App.js</code> and save to reload.
+          이제 리액트는 내겁니다
         </p>
         <a
           className="App-link"
