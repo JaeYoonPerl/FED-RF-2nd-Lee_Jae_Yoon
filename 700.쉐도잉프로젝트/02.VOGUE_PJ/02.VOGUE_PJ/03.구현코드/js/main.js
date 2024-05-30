@@ -34,6 +34,9 @@ function Layout(){
         : menu =="member"
         ? "./css/member.css"
         :"./css/items.css"; 
+        
+        // 페이지 최상단이동코드
+        window.scrollTo(0,0);
     },[menu]);
     
 
@@ -49,9 +52,9 @@ function Layout(){
         :menu=="gallery"
         ?<Gallery/>
         :menu=="login"
-        ?<Login />
+        ?<Login changeMenu={setMenu}/>
         :menu=="member"
-        ?<Member />
+        ?<Member changeMenu={setMenu}/>
         :<ItemsArea catName={menu} />}
          {/* 3. 하단영역 컴포넌트 */}
         <FooterArea />
