@@ -7,9 +7,8 @@ import { banData } from "../data/banner";
 // 배너 CSS
 import "../../css/banner.scss";
 
-// 제이쿼리 + 제이쿼리UI
-import $ from "jquery";
-import "jquery-ui-dist/jquery-ui";
+// 배너 슬라이드 기능 함수
+import goSlide from "../func/go_slide.js";
 
 function Banner({catName}) {
     // catName 배너 데이터 카테고리 이름
@@ -34,12 +33,25 @@ function Banner({catName}) {
                     </li>
                 ))}
             </ul>
-
-            {/* 양쪽이동버튼 */}
-            <button className="abtn lb">＜</button>
-            <button className="abtn rb">＞</button>
-            {/* 블릿 인디케이터 - 선택데이터의 개수만큼 만들기 */}
-            <ol className="indic"></ol>
+            {
+                // 배너 데이터가 1개면 양쪽 이동 버튼 출력안함
+                // 배열.length로 배열개수가 1 이상일때만 출력
+                selData.length > 1 &&
+                <>
+                {/* 양쪽이동버튼 */}
+                {/* 양쪽이동버튼 */}
+                <button className="abtn lb" onClick={goSlide}>＜</button>
+                <button className="abtn rb" onClick={goSlide}>＞</button>
+                {/* 블릿 인디케이터 - 선택데이터의 개수만큼 만들기 
+                map메서드의 반복기능만 이용하여 태그생성 
+                순번은 첫번째 블릿li만 클래스 "on" 넣기*/}
+                <ol className="indic">
+                    {selData.map((v,i)=>
+                    <li key={i} className={i==0?"on":""}></li>
+                    )}
+                </ol>
+                </>
+            }
         </div>
     );
 }
