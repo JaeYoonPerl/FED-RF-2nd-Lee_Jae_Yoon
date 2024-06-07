@@ -1,11 +1,11 @@
 // 무비스 페이지 컴포넌트 ///
-
-export default function Movies(){
+import Banner from "../modules/Banner";
+export default function Movies() {
     // 코드 리턴구역 ////
-    return(
+    return (
         <>
-           
-           <h1>무비스페이지</h1>
+            {/* 배너 컴포넌트  */}
+            <Banner catName="MOVIES" />
         </>
     );
 } /////// Movies /////

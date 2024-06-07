@@ -32,6 +32,7 @@ import "../src/css/index.scss";
                 <Route />
                 <Route />
                 <Route />
+                
             </Route>
     4. 라우터를 구성하는 컴포넌트는 자체적으로
     내보내기 셋팅을 해야한다!
