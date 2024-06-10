@@ -13,6 +13,8 @@ import Gallery from "./components/Gallery";
 import Login from "./components/Login";
 // 회원가입 모듈 불러오기
 import Member from "./components/Member";
+// 부드러운 스크롤 불러오기 
+import { scrolled,setPos } from "./smoothScroll24";
 
 // [1] 메인 페이지 전체 레이아웃 로딩 컴포넌트
 function Layout(){ 
@@ -37,6 +39,36 @@ function Layout(){
         
         // 페이지 최상단이동코드
         window.scrollTo(0,0);
+
+        //////////////////////////////////////////////////////
+        // [이벤트의 해제는 removeEventListener()를 사용한다]
+        // 부드러운 스크롤 적용하기sms "home"에서만 적용함!
+        // if(menu == "home")
+        if(menu == "home")
+        document.addEventListener("wheel",scrolled,{passive:false});
+        // "home"이 아닌 경우는 모두 이벤트를 해제한다.
+        else document.removeEventListener("wheel",scrolled,{passive:false});
+        //////////////////////////////////////////////
+
+        // 슬림적용 대상 : #top-area 
+        const topMenu =document.querySelector("#top-area"); 
+        // 슬림메뉴 적용하기 : "home"에서만 적용
+        const chkSlim = () =>{
+            // 스크롤 위치값 구하기
+            let scTop = window.scrollY;
+            console.log("슬림적용!!!",scTop);
+            if(scTop > 200) 
+            topMenu.classList.add("on");
+            else 
+            topMenu.classList.remove("on");
+        }; //// chkSlim 함수
+
+        // 스크롤 이벤트 적용하기 scroll 이벤트
+        // "home"에서만 적용하기
+        if(menu =="home")
+        window.addEventListener("scroll",chkSlim);
+        else window.removeEventListener("scroll",chkSlim);
+
     },[menu]);
     
 
