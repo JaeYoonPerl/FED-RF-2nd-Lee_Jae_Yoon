@@ -1,9 +1,10 @@
 import React from 'react';
+import MainCont from '../pages/MainCont';
 
 function MainArea(props) {
     return (
         <div>
-            <h1>메인영역</h1>
+            <MainCont />
         </div>
     );
 }
