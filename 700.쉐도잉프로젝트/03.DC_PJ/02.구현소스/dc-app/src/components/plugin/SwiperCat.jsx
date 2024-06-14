@@ -3,6 +3,7 @@
 import React, { useEffect } from "react";
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
+import { Link } from "react-router-dom";
 // 제이쿼리 불러오기
 import $ from "jquery";
 
@@ -56,6 +57,14 @@ export function SwiperCat() {
                         // 숫자형 변환해줌 Number(변수)
                         Number(v.idx) <= 7 && (
                             <SwiperSlide key={i}>
+                                <Link to="/detail"
+                                // state로 3가지 값을 넘겨준다
+                                state={{
+                                    cname:v.cname, // 캐릭터이름
+                                    cdesc:v.cdesc, // 캐릭터설명
+                                    facts:v.facts, // 캐릭터상세
+                                }}
+                                >
                                 <section className="sw-inbox2">
                                     {/* 캐릭터이미지영역 */}
                                     <div className="cat-img2">
@@ -66,6 +75,7 @@ export function SwiperCat() {
                                         <h3>{v.cname}</h3>
                                     </div>
                                 </section>
+                                    </Link> 
                             </SwiperSlide>
                         )
                 )}
