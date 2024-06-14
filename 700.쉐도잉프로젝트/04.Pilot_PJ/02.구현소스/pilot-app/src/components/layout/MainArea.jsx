@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import MainCont from '../pages/MainCont';
 
 function MainArea(props) {
+    
     return (
         <div>
             <MainCont />
