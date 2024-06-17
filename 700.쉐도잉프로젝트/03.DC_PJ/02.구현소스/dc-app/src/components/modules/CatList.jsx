@@ -19,6 +19,8 @@ Root >
 */
 
 function CatList(props) {
+    
+
     return (
         <section className="cat-swbox">
             {/* 1. 모듈타이틀 */}
