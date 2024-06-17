@@ -10,6 +10,7 @@ npm i @fortawesome/fontawesome-svg-core
 2. 무료로 제공되는 Solid, Regular Brands 3개의 카테고리에 대한 패키지만 설치
 
 npm i @fortawesome/free-solid-svg-icons @fortawesome/free-regular-svg-icons @fortawesome/free-brands-svg-icons
+npm i @fortawesome/free-duotone-svg-icons @fortawesome/free-regular-svg-icons @fortawesome/free-brands-svg-icons
 
 3. Font Awesome을 React 컴포넌트 형태로 사용할 수 있도록 해주는 패키지 설치
 npm i @fortawesome/react-fontawesome
@@ -28,6 +29,7 @@ import { faCamera } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 export default () => <FontAwesomeIcon icon={faCamera} />;
+
 
 [4] 편리한 사용 (24/6/12)
 
