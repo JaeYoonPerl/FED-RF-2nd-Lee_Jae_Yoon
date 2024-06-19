@@ -86,9 +86,7 @@ export default function TopArea() {
                               goNav("/")}}>
                                 <Logo logoStyle="top" />
                             </a>
-                            {/* <Link to="/">
-                <Logo logoStyle="top" />
-              </Link> */}
+                           
                         </li>
                         {/* 2. GNB메뉴 데이터 배열로 만들기 */}
                         {menu.map((v, i) => (
