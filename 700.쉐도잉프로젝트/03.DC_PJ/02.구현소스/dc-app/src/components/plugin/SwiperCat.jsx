@@ -57,25 +57,26 @@ export function SwiperCat() {
                         // 숫자형 변환해줌 Number(변수)
                         Number(v.idx) <= 7 && (
                             <SwiperSlide key={i}>
-                                <Link to="/detail"
-                                // state로 3가지 값을 넘겨준다
-                                state={{
-                                    cname:v.cname, // 캐릭터이름
-                                    cdesc:v.cdesc, // 캐릭터설명
-                                    facts:v.facts, // 캐릭터상세
-                                }}
+                                <Link
+                                    to="/detail"
+                                    // state로 3가지 값을 넘겨준다
+                                    state={{
+                                        cname: v.cname, // 캐릭터이름
+                                        cdesc: v.cdesc, // 캐릭터설명
+                                        facts: v.facts, // 캐릭터상세
+                                    }}
                                 >
-                                <section className="sw-inbox2">
-                                    {/* 캐릭터이미지영역 */}
-                                    <div className="cat-img2">
-                                        <img src={v.tmsrc} alt={v.cname} />
-                                    </div>
-                                    {/* 캐릭터타이틀영역 */}
-                                    <div className="cat-tit2">
-                                        <h3>{v.cname}</h3>
-                                    </div>
-                                </section>
-                                    </Link> 
+                                    <section className="sw-inbox2">
+                                        {/* 캐릭터이미지영역 */}
+                                        <div className="cat-img2">
+                                            <img src={v.tmsrc} alt={v.cname} />
+                                        </div>
+                                        {/* 캐릭터타이틀영역 */}
+                                        <div className="cat-tit2">
+                                            <h3>{v.cname}</h3>
+                                        </div>
+                                    </section>
+                                </Link>
                             </SwiperSlide>
                         )
                 )}
