@@ -18,6 +18,7 @@ import { useRef, useState } from "react";
 
 export function SwiperBan({cat}) {
     // cat -카테고리명
+    console.log("배너카테고리명:",cat);
     
   // 리스트만들기 함수 ////
   const makeList = (num) => {
@@ -30,7 +31,7 @@ export function SwiperBan({cat}) {
             (cat=="men"||cat=="women")&&x==0 ?
             
             (<video src={"./images/sub/" + cat + "/banner/mv.mp4"} style={{width:"100%",height:"100%",objectFit:"cover"}} 
-            // muted 
+            muted 
             loop
             className={cat+"-vid"} 
             // autoPlay 
@@ -71,6 +72,10 @@ export function SwiperBan({cat}) {
             // swp는 내부로 전달되는 스와이퍼 자신객체
             // activeIndex는 loop시 오류있음
             // realIndex는 loop에도 잘나옴
+
+            // style에는 없으므로 여기서 리턴
+            if(cat=="style") return;
+            
 
             // 현재 진짜 순번
             let idx =swp.realIndex;

@@ -16,6 +16,7 @@ function MainArea({ page }) {
             (page == "men" ||
             page == "women" ||
             page == "style" )
+            
             && <Fashion subCat={page} />}
         </>
     );
