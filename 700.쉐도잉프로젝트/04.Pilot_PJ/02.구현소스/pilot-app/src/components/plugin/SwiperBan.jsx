@@ -58,15 +58,17 @@ export function SwiperBan({cat}) {
         pagination={{
           clickable: true,
         }}
-        autoplay={{
-          delay: 3000,
-          disableOnInteraction: false,
-        }}
+        // -> 자동플레이는 코딩으로 대체
+        // autoplay={{
+        //   delay: 3000,
+        //   disableOnInteraction: false,
+        // }}
         loop={true}
         navigation={true}
         /* 사용할 모듈을 여기에 적용시킨다 */
         modules={[Pagination, Navigation, Autoplay]}
         className="mySwiper"
+        
         // 슬라이드 이동후 실행코드구역 
         onSlideChange={(swp)=>{
             // swp는 내부로 전달되는 스와이퍼 자신객체
@@ -76,6 +78,8 @@ export function SwiperBan({cat}) {
             // style에는 없으므로 여기서 리턴
             if(cat=="style") return;
             
+            // 선택 동영상
+            let mvEle =document.querySelector(`.${cat}-vid`);
 
             // 현재 진짜 순번
             let idx =swp.realIndex;
@@ -84,10 +88,10 @@ export function SwiperBan({cat}) {
             console.log("슬라이드 순번:",idx);
            
             if(idx==0){
-                document.querySelector(`.${cat}-vid`).play();
+              mvEle.play();
             }
             else{
-                document.querySelector(`.${cat}-vid`).pause();
+              mvEle.pause();
             }
         }}
       >
