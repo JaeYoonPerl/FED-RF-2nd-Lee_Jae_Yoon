@@ -1,6 +1,6 @@
 // 회원가입 페이지 컴포넌트 - Member.jsx
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 // 로컬스토리지 생성 JS
 import { initData } from "../func/mem_fn";
@@ -9,6 +9,10 @@ import { initData } from "../func/mem_fn";
 import "../../css/member.scss";
 
 function Member() {
+    // 라우터 이동 네비게이트
+    const goNav = useNavigate();
+    // goNav(라우터주소, state변수)
+
     // [ 회원가입 페이지 요구사항 ]
     // 1. 각 입력항목별로 유효성검사를 실행함
     // 2. 상태체크를 통하여 적절한 유효성검사시
@@ -274,6 +278,16 @@ function Member() {
 
             // 6. 로컬스에 반영하기 : 문자화해서 넣어야함!
             localStorage.setItem("mem-data", JSON.stringify(memData));
+
+            // 7. 회원가입 환영메시지 + 로그인 페이지 이동
+            // 버튼 텍스트에 환영메시지
+            document.querySelector(".sbtn").innerText =
+            "Thank you for joining us";
+            // 1초후 페이지 이동 : 라우터 Navigate로 이동
+            setTimeout(()=>{
+                goNav("/login");
+            },1000);
+
         } /////// if /////
         // 3. 불통과시 ///
         else {
