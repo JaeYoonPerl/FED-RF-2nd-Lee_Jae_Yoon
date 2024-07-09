@@ -4,11 +4,12 @@ import { addComma } from "../../js/func/common_fn";
 import $ from "jquery";
 import { pCon } from "./pCon";
 
-function ItemDetail({ cat, ginfo, dt, setGinfo }) {
+function ItemDetail({ cat, ginfo, dt, setGinfo, gIdx }) {
     // cat- 카테고리
     // ginfo - 상품정보
     // dt - 상품데이터
     // setGinfo - ginfo값 변경 메서드
+    // gIdx - 상품 고유번호
 
     // [ 배열 생성 테스트 ]
     // 1. 배열변수 = [] -> 배열리터럴
@@ -27,16 +28,16 @@ function ItemDetail({ cat, ginfo, dt, setGinfo }) {
     // console.log(Array(10).fill(7,2));
     // console.log(Array(10).fill(7,2,5));
 
-    console.log(cat, ginfo);
+    console.log(cat, ginfo, gIdx);
 
     // 전역 카트 사용여부값 업데이트 사용위해 전역 컨텍스트 사용
     const myCon = useContext(pCon);
 
     // 제이쿼리 이벤트 함수에 전달할 ginfo값 참조변수
-    const getGinfo =  useRef(ginfo);
+    const getGinfo = useRef(ginfo);
     // getGinfo참조변수는 새로 들어온 ginfo전달값이 달라진 경우
     // 업데이트한다.
-    if(getGinfo.current != ginfo) getGinfo.current = ginfo;
+    if (getGinfo.current != ginfo) getGinfo.current = ginfo;
 
     //화면랜더링구역
     useEffect(() => {
@@ -66,8 +67,8 @@ function ItemDetail({ cat, ginfo, dt, setGinfo }) {
             // seq가 0이냐? 그럼 증가: 아니면 num이 1이냐? 그럼 1 아니면 감소
             // 증감기호가 변수 앞에 있어야 먼저 증감하고 할당함
 
-            console.log("ginfo 전달변수확인:",ginfo[3]);
-            console.log("getGinfo 참조변수 확인:",getGinfo.current);
+            console.log("ginfo 전달변수확인:", ginfo[3]);
+            console.log("getGinfo 참조변수 확인:", getGinfo.current);
             // [ 문제!!! ginfo값으로 읽으면 최초에 셋팅된 값이 그래도 유지된다
             // 왜 ? 본 함수는 최초한번만 셋팅되기 때문 ]
             // [ 해결책 : 새로 들어오는 ginfo값을 참조변수에 넣어서 본 함수에서 그 값을 읽으면 된다.]
@@ -75,7 +76,7 @@ function ItemDetail({ cat, ginfo, dt, setGinfo }) {
             // (4) 총합계 반영하기
             // 원가격은 컴포넌트 전달변수 ginfo[3] -> 갱신안됨!
             // 원가격은 참조변수 getGinfo 사용 -> 매번 업데이트
-            total.text(addComma(getGinfo.current[3]* num) + "원");
+            total.text(addComma(getGinfo.current[3] * num) + "원");
         }); ///// click
 
         // 참고 제거용 ->
@@ -83,11 +84,11 @@ function ItemDetail({ cat, ginfo, dt, setGinfo }) {
     }, []); // 현재 컴포넌트 처음 생성시 한번만 실행구역
 
     // [ 화면 랜더링 구역 : 매번]
-    useEffect(()=>{
+    useEffect(() => {
         // 매번 리랜더링 될때마다 수량 초기화
         $("#sum").val(1);
         // 총합계 초기화
-        $("#total").text(addComma(ginfo[3])+"원");
+        $("#total").text(addComma(ginfo[3]) + "원");
     }); ///// useEffect /.//
 
     // 코드 리턴 구역
@@ -215,7 +216,33 @@ function ItemDetail({ cat, ginfo, dt, setGinfo }) {
                         </div>
                         <div>
                             <button className="btn btn1">BUY NOW</button>
-                            <button className="btn" onClick={()=>myCon.setCartSts(true)}>SHOPPING CART</button>
+                            <button
+                                className="btn"
+                                onClick={() => {
+                                    // 로컬스에 넣기
+                                    // 로컬스 없으면 만들어라
+                                    if (!localStorage.getItem("cart-data")) {
+                                        localStorage.setItem("cart-data", "[]");
+                                    } /// if
+                                    // 로컬스 읽어와서 파싱하기
+                                    let locals = localStorage.getItem("cart-data");
+                                    locals = JSON.parse(locals);
+                                    // 로컬스에 객체 데이터 추가하기
+                                    locals.push({
+                                        num: 1,
+                                        idx:gIdx,
+                                        cat: cat,
+                                        ginfo: ginfo,
+                                    });
+                                    // 로컬스에 문자화하여 입력하기
+                                    localStorage.setItem("cart-data",JSON.stringify(locals));
+ 
+                                    // 카트 상태값 변경
+                                    myCon.setCartSts(true);
+                                }}
+                            >
+                                SHOPPING CART
+                            </button>
                             <button className="btn">WISH LIST</button>
                         </div>
                     </section>

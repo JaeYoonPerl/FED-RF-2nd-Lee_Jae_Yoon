@@ -1,5 +1,5 @@
 // 아이템리스트 컴포넌트
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 
 // 상품 데이터 불러오기 : 원본데이터
 import itemListData from "../../js/data/item_list";
@@ -21,6 +21,9 @@ function Itemlist() {
     const [cat, setCat] = useState(itemListData[0].cat);
     // [2] 상품정보
     const [ginfo,setGinfo ] = useState(itemListData[0].ginfo);
+    
+    // 상품고유번호 참조변수
+    const gIdx = useRef(0);
 
     // 화면 랜더링 구역
     useEffect(() => {
@@ -50,9 +53,11 @@ function Itemlist() {
                             // 상품상세모듈 전달 상태변수 변경
                             setCat(v.cat);
                             setGinfo(v.ginfo);
+                            // 상품고유번호 idx업데이트
+                            gIdx.current = v.idx;
                             // 상세상품정보 박스 보이기
                             $(".bgbx").show();
-
+                            // console.log("data:",v);
                         }}>
                             [{i+1}]
                             <img src={process.env.PUBLIC_URL+`/images/goods/${v.cat}/${v.ginfo[0]}.png`} alt="dress" />
@@ -81,6 +86,8 @@ function Itemlist() {
                 dt={itemListData} 
                 // setGinfo - 한줄리스트 클릭시 변경
                 setGinfo={setGinfo}
+                // 상품고유번호전달
+                gIdx={gIdx.current}
                 />
             </div>
         </main>
