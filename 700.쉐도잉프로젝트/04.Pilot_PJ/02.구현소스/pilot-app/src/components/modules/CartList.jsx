@@ -34,14 +34,19 @@ function CartList(props) {
         // 호출한 곳에 합계리턴
         return result;
     };
-    //화면 랜더링 구역 : selData 의존성
+    //화면 랜더링 구역 : dataCnt 의존성
     useEffect(()=>{
         // 카트버튼 나타나기
-        $("#mycart").removeClass("on").fadeIn(300,function(){
+        $("#mycart").removeClass("on")
+        .delay(500) // 애니메이션 지연시간
+        .fadeIn(300,function(){
             // 나타난후 클래스 넣으면 오른쪽이동+작아짐
             $(this).addClass("on");
         }); ///////fadein
-    },[selData]);
+    },[dataCnt]); // -> 숫자값은 값할당이믈 변함 없음
+    // },[selData]); // => 리랜더링시 객체주소값이 변경되어
+    // 매번 새로운 값이 업데이트 되기 때문애ㅜ
+
 
     // 화면 랜더링 구역 : 한번만 /////
     useEffect(() => {
