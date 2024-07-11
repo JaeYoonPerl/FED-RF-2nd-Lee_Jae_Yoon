@@ -162,7 +162,8 @@ function CartList(props) {
                                                                 // 지울순번 
                                                                 let selSeq = 
                                                                 selData.find((val,i) => {
-                                                                    if(val.idx ==v.idx) return i;
+                                                                    if(val.idx ==v.idx) 
+                                                                    return i;
                                                                 })
                                                                 console.log(selSeq);
                                                             } /////if
