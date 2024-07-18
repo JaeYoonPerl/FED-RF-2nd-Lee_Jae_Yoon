@@ -22,6 +22,8 @@ export default function Layout() {
     const [loginMsg, setLoginMsg] = useState(null);
     // console.log(loginMsg);
 
+    
+
     // [ 공통 함수 ]
     // 1. 라우팅 이동함수 : 라우터 이동후크인 useNavigate는
     // 다른 useCallback() 후크로 처리할 수 없다.
