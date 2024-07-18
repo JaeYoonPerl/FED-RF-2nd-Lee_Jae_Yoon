@@ -50,10 +50,13 @@ export default function Layout() {
         setLoginSts(null);
         // 2. 세션스 지우기 : minfo
         sessionStorage.removeItem("minfo");
+        // 추가 삭제 : 게시판 조회데이터 세션스
+        sessionStorage.removeItem("bd-rec");
         // 3. 로그인 메시지 초기화
         setLoginMsg(null);
         // 4. 메인페이지로 돌아가기
         goPage("/");
+        
     },[]); //// logoutFn 함수 ////
 
     // 화면 랜더링 구역
