@@ -507,7 +507,11 @@ const ListMode = ({ bindList, totalCount, unitSize, pageNum, setPageNum, pgPgNum
                         Ascending
                     </option>
                 </select>
-                <input id="stxt" type="text" maxLength="50" />
+                <input id="stxt" type="text" maxLength="50"
+                onKeyUp={(e)=>
+                // e.keyCode는 번호로 13이 엔터
+                // e.key는 문자로 "Enter"가 엔터
+                {if(e.key=="Enter") $(e.currentTarget).next().trigger("click")}} />
                 
                 <button
                     className="sbtn"
@@ -542,8 +546,14 @@ const ListMode = ({ bindList, totalCount, unitSize, pageNum, setPageNum, pgPgNum
                     onClick={(e)=>{
                         // 검색어 초기화
                         setKeyword(['','']);
-                        // 검색어 삭제
-                        $(e.currentTarget).siblings("#stxt").empty();
+                        // 검색어 삭제(input이니까 val())
+                        $(e.currentTarget).siblings("#stxt").val('');
+                        // 검색항목초기화
+                        $(e.currentTarget).siblings("#cta").val("tit");
+                        // 정렬초기화
+                        setSort(1);
+                        // 정렬항목초기화
+                        setSortCta('idx');
                         // 첫페이지번호변경
                         setPageNum(1);
                     }}
