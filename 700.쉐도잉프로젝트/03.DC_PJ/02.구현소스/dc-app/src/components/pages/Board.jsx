@@ -863,6 +863,8 @@ const ModifyMode = ({ selRecord }) => {
     // 전달된 데이터 객체를 변수에 할당
     const data = selRecord.current;
 
+    const imgExt = ["jpg", "png", "gif"];
+
     return (
         <>
             <table className="dtblview readone">
