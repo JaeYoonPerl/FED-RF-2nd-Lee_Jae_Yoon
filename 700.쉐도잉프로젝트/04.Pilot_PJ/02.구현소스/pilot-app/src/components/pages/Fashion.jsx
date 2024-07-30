@@ -1,5 +1,7 @@
 import React, { useContext, useEffect, useLayoutEffect, useState } from "react";
 
+import { Parallax } from "react-parallax";
+
 // 부드러운 스크롤 JS
 import { scrolled, setPos } from "../../js/func/smoothScroll24";
 
@@ -8,6 +10,9 @@ import { pCon } from "../modules/pCon";
 
 // 제이쿼리 불러오기
 import $ from "jquery";
+
+// gnb 데이터 가져오기
+import {gnbData} from "../../js/data/gnb";
 
 // CSS불러오기
 import "../../css/fashion.scss";
@@ -99,13 +104,25 @@ function Fashion({subCat}) {
         <SwiperBan cat={subCat} />
       </section>
       {/* 2. 신상품영역 */}
-      <section id="c1" className="cont sc-ani c1">
+      <section id="c1" className={"cont sc-ani c1 "+subCat}>
         <SinSang cat={subCat} chgItemFn={chgItem} setPos={setPos} />
       </section>
       {/* 2.5. 상세보기박스 */}
       <div className="bgbx"></div>
       {/* 3. 패럴랙스 영역 : 리액트용 패럴랙스 적용 */}
-      <section id="c2" className="cont"></section>
+      <section id="c2" className="cont">
+        <Parallax
+          className="c2"
+          // 패럴랙스할 배경이미지 설정속성 bgImage
+          bgImage={process.env.PUBLIC_URL+"/images/sub/" + 
+         subCat + "/02.special.png"}
+          // 패럴랙스 이동정도 조정속성 strength
+          // 수치범위 :  -500 ~ 1000 -> 높은 숫자는 반대방향
+          strength={200}
+        >
+          <h2 className="c2tit sc-ani">2024 {gnbData[subCat][1]}</h2>
+        </Parallax>
+      </section>
       {/* 4. 단일상품영역 */}
       <section id="c3" className="cont c3"></section>
       {/* 5. 스타일상품영역 */}
