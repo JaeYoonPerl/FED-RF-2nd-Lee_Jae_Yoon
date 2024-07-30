@@ -18,6 +18,7 @@ import {gnbData} from "../../js/data/gnb";
 import "../../css/fashion.scss";
 import { SwiperBan } from "../plugin/SwiperBan";
 import SinSang from "../modules/SinSang";
+import FashionIntro from "../modules/FashionIntro";
 
 function Fashion({subCat}) {
     // subCat - 서브 카테고리명
@@ -124,9 +125,15 @@ function Fashion({subCat}) {
         </Parallax>
       </section>
       {/* 4. 단일상품영역 */}
-      <section id="c3" className="cont c3"></section>
+      <section id="c3" className="cont c3">
+            <FashionIntro catName="sub" subCat={subCat} opt={true} seq={0}/>
+      </section>
+      
       {/* 5. 스타일상품영역 */}
-      <section id="c4" className="cont c4"></section>
+      <section id="c4" className="cont c4">
+            <FashionIntro catName="sub" subCat={subCat} opt={false} seq={1}/>
+
+      </section>
     </>
   );
 }
