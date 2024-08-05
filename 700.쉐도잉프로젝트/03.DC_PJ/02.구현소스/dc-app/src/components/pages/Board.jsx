@@ -695,7 +695,7 @@ const ListMode = ({ bindList, totalCount, unitSize, pageNum, setPageNum, pgPgNum
                     History
                 <b style={{position:"absolute",lineHeight:"1.7"}}>{
                     memory.indexOf("*")!==-1 &&
-                    memory.split("*").map(v=><a href="#">{v}</a>)
+                    memory.split("*").map(v=><div><a href="#">{v}</a></div>)
                 }</b>
                 </button>
             </div>
