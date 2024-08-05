@@ -691,7 +691,13 @@ const ListMode = ({ bindList, totalCount, unitSize, pageNum, setPageNum, pgPgNum
                     <option value="idx">Recent</option>
                     <option value="tit">Title</option>
                 </select>
-                <b>{memory}</b>
+                <button style={{position:"relative"}}>
+                    History
+                <b style={{position:"absolute",lineHeight:"1.7"}}>{
+                    memory.indexOf("*")!==-1 &&
+                    memory.split("*").map(v=><a href="#">{v}</a>)
+                }</b>
+                </button>
             </div>
             <table className="dtbl" id="board">
                 <thead>
