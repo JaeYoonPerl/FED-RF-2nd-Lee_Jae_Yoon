@@ -14,7 +14,7 @@ import { faSearch } from "@fortawesome/free-solid-svg-icons";
 // 제이쿼리
 import $ from "jquery";
 // 메모이제이션
-import { memo } from "react";
+import { memo, useEffect } from "react";
 
 // import { dCon } from "../modules/dCon";
 
@@ -29,10 +29,10 @@ import { memo } from "react";
 // 메모이제이션 기능를 제공하기 때문이다!
 // -> 전달되는 함수가 반드시 useCallback() 처리가 되어야 한다!!!
 // ->> 객체, 배열, 함수는 모두 값저장이 아니고 주소저장임
-// 그래서 이 주소를 고정해 줘야 같은 값으로 인식하여 
+// 그래서 이 주소를 고정해 줘야 같은 값으로 인식하여
 // 메모이제이션된다
 
-export const TopArea = memo(({loginMsg,loginSts,logoutFn,goPage}) => {
+export const TopArea = memo(({ loginMsg, loginSts, logoutFn, goPage }) => {
     // 전달값
     // 1. loginMsg - 로그인 메시지 변수
     // 2. loginSts - 로그인 상태 변수
@@ -42,7 +42,7 @@ export const TopArea = memo(({loginMsg,loginSts,logoutFn,goPage}) => {
 
     // 컨텍스트 사용하기 -> 메모이제이션을 위해 사용안함
     // const  myCon= useContext(dCon);
-    
+
     // 이동 함수 ///
     // const goNav = useNavigate();
     // 사용시 goNav(라우터주소.{전달객체})
@@ -93,6 +93,22 @@ export const TopArea = memo(({loginMsg,loginSts,logoutFn,goPage}) => {
         // 네비게이트메서드(라우터주소,{state:{보낼객체}})
         goPage("/search", { state: { keyword: txt } });
     }; /////// goSearch
+
+    // 햄버거용 함수 : 전체메뉴 보이기
+  const showMenu = () => $(".top-area").toggleClass('on');
+
+  // 랜더링후 실행구역 ///////////////
+  useEffect(()=>{
+
+    // GNB a요소 클릭시 전체메뉴 닫기
+    // 대상: .gnb a[href!='#'] 
+    // -> href가 '#'이 아닌 gnb 하위 모든 a요소
+    // -> != 은 제이쿼리전용!
+    $(".gnb a[href!='#']").on('click',()=>{
+      $(".top-area").removeClass('on');
+    }); /////////// click //////////
+
+  }); ///////// useEffect /////////
 
     //// 코드 리턴구역 //////////////
     return (
@@ -179,34 +195,41 @@ export const TopArea = memo(({loginMsg,loginSts,logoutFn,goPage}) => {
                         {
                             /* 회원가입, 로그인 버튼은
                             로그인 상태가 null일때 나옴 */
-                            loginSts === null && 
-                            <>
-                                <li>
-                                    <Link to="/member">JOIN US</Link>
-                                </li>
-                                <li>
-                                    <Link to="/login">LOGIN</Link>
-                                </li>
-                            </>
+                            loginSts === null && (
+                                <>
+                                    <li>
+                                        <Link to="/member">JOIN US</Link>
+                                    </li>
+                                    <li>
+                                        <Link to="/login">LOGIN</Link>
+                                    </li>
+                                </>
+                            )
                         }
                         {
                             /* 로그인 상태이면 로그아웃 버튼 보임 */
-                            loginSts !== null && 
-                            <>
-                                <li>
-                                    <a href="#" onClick={(e)=>{
-                                        // 기본이동 막기
-                                        e.preventDefault();
-                                        // 로그아웃 처리함수 호출
-                                        logoutFn();
-                                    }}>
-                                        LOGOUT
-                                    </a>
-                                </li>
-                            </>
+                            loginSts !== null && (
+                                <>
+                                    <li>
+                                        <a
+                                            href="#"
+                                            onClick={(e) => {
+                                                // 기본이동 막기
+                                                e.preventDefault();
+                                                // 로그아웃 처리함수 호출
+                                                logoutFn();
+                                            }}
+                                        >
+                                            LOGOUT
+                                        </a>
+                                    </li>
+                                </>
+                            )
                         }
                     </ul>
                 </nav>
+                {/* 모바일용 햄버거 버튼 */}
+                <button className="hambtn" onClick={showMenu}></button>
             </header>
         </>
     );
