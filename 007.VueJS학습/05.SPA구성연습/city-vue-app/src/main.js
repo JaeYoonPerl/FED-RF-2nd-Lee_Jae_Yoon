@@ -3,8 +3,10 @@ import Vue from 'vue'
 // 구성 Root VUE 파일
 import App from './App'
 // 뷰JS 라우터 불러오기
+// (기본적으로 라우터 폴더 아래 index.js를 읽어옴)
 import router from './router'
 // 뷰엑스 스토어 JS 불러오기
+import store from './store'
 
 // 웹 메시지 안나오게 하는 코드
 Vue.config.productionTip = false
